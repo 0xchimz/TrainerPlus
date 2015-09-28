@@ -1,5 +1,6 @@
 package controllers;
 
+import play.data.*;
 import play.mvc.*;
 import rules.*;
 import views.html.*;
@@ -12,14 +13,22 @@ import static org.easyrules.core.RulesEngineBuilder.aNewRulesEngine;
  */
 public class Application extends Controller {
     public static Result index() {
+        return ok(index.render(""));
+    }
+
+    public static Result submit() {
+        DynamicForm dynamicForm = new DynamicForm().bindFromRequest();
+        String gender = dynamicForm.get("gender");
+        String wph = dynamicForm.get("waistPerHip");
+        double waistPerHip = Double.parseDouble(wph);
         ObesityRule obesityRule = new ObesityRule();
-        obesityRule.setInput("male", 1.5);
+        obesityRule.setInput(gender, waistPerHip);
 
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(obesityRule);
         rulesEngine.fireRules();
 
-        String result = obesityRule.getResult();
-        return ok(index.render(result));
+        String show = obesityRule.getResult();
+        return ok(resultPage.render(show));
     }
 }
