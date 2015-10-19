@@ -1,8 +1,8 @@
 /*.iml
+/logs
 /target
 /project/project
 /project/target
-/logs
 /.idea
 /.settings
 .DS_Store
