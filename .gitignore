@@ -2,7 +2,7 @@
 /target
 /project/project
 /project/target
-/logs/
+/logs
 /.idea
 /.settings
 .DS_Store
