@@ -28,7 +28,7 @@ public class WeightManagementRule {
     }
     
     @Action(order = 2)
-    public void checkFemale() throws Exception {
+    public void checkLose() throws Exception {
         if (goal.equalsIgnoreCase("lose")){
         	result = String.format("You need to eat less than %d kcal\n",TDEE);
         }
