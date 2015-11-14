@@ -22,13 +22,16 @@ public class Application extends Controller {
         String wph = dynamicForm.get("waistPerHip");
         double waistPerHip = Double.parseDouble(wph);
         ObesityRule obesityRule = new ObesityRule();
+        MuscularRule muscularRule = new MuscularRule();
         obesityRule.setInput(gender, waistPerHip);
+        muscularRule.setInput(true, false);
 
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(obesityRule);
+        rulesEngine.registerRule(muscularRule);
         rulesEngine.fireRules();
 
-        String show = obesityRule.getResult();
+        String show = obesityRule.getResult() + "\n" + muscularRule.getResult();
         return ok(resultPage.render(show));
     }
 }

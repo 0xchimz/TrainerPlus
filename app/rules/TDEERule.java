@@ -18,6 +18,8 @@ public class TDEERule {
     private double activity_factor;
     private double TDEE;
     private double BMR;
+    private String result;
+
     /*
      	� 1.1 - 1.2 = Sedentary (desk job, and little formal exercise, this will be most of you students)
 		� 1.3 - 1.4 = Lightly Active (light daily activity and light exercise 1-3 days a week)
@@ -37,7 +39,7 @@ public class TDEERule {
         if (gender.equalsIgnoreCase("male")){
         	BMR = 10*weight + 6.25*height - 5*age + 5;
         	TDEE = BMR * activity_factor;
-        	System.out.println(TDEE);
+        	result = "" + TDEE;
         }
     }
     
@@ -46,15 +48,18 @@ public class TDEERule {
         if (gender.equalsIgnoreCase("female")){
         	BMR = 10*weight + 6.25*height - 5* age - 161;
         	TDEE = BMR * activity_factor;
-        	System.out.println(TDEE);
+        	result = "" + TDEE;
         }
     }
 
-    public void setInput(double weight, double height, String gender, int age, double activty_factor) {
+    public void setInput(double weight, double height, String gender, int age, double activity_factor) {
         this.weight = weight;
         this.height = height;
         this.gender = gender;
         this.age = age;
         this.activity_factor = activity_factor;
+    }
+    public String getResult() {
+        return result;
     }
 }

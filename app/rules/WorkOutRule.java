@@ -11,6 +11,7 @@ public class WorkOutRule {
      * The user input which represents the data that the rule will operate on.
      */
     private boolean isIntense;
+    private String result;
 
     @Condition
     public boolean checkInput() {
@@ -21,14 +22,14 @@ public class WorkOutRule {
     @Action(order = 1)
     public void disOrder() throws Exception {
         if (isIntense == false){
-        	System.out.println("You need a low-intensity workout");
+        	result = "You need a low-intensity workout";
         }
     }
     
     @Action(order = 2)
     public void intense() throws Exception {
         if (isIntense == true){
-        	System.out.println("you need High intensity workout");
+        	result = "you need High intensity workout";
         }
     }
 
@@ -36,4 +37,7 @@ public class WorkOutRule {
     	this.isIntense = isIntense;
     }
 
+    public String getResult() {
+        return result;
+    }
 }

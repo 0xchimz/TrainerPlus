@@ -12,6 +12,7 @@ public class WeightManagementRule {
      */
     private double TDEE;
     private String goal;
+    private String result;
 
     @Condition
     public boolean checkInput() {
@@ -22,14 +23,14 @@ public class WeightManagementRule {
     @Action(order = 1)
     public void checkGain() throws Exception {
         if (goal.equalsIgnoreCase("gain")){
-        	System.out.printf("You need to eat more than %d kcal\n",TDEE);
+        	result = String.format("You need to eat more than %d kcal\n",TDEE);
         }
     }
     
     @Action(order = 2)
     public void checkFemale() throws Exception {
         if (goal.equalsIgnoreCase("lose")){
-        	System.out.printf("You need to eat less than %d kcal\n",TDEE);
+        	result = String.format("You need to eat less than %d kcal\n",TDEE);
         }
     }
 
@@ -37,5 +38,7 @@ public class WeightManagementRule {
         this.TDEE = TDEE;
         this.goal = goal;
     }
-
+    public String getResult() {
+        return result;
+    }
 }

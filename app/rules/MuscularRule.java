@@ -12,6 +12,7 @@ public class MuscularRule {
      */
     private boolean isGain;
     private boolean isDisorder;
+    private String result;
 
     @Condition
     public boolean checkInput() {
@@ -22,14 +23,14 @@ public class MuscularRule {
     @Action(order = 1)
     public void disOrder() throws Exception {
         if (isDisorder == true){
-        	System.out.println("You need a low-intensity training and gain weight");
+        	result = "You need a low-intensity training and gain weight";
         }
     }
     
     @Action(order = 2)
     public void notDisorder() throws Exception {
         if (isDisorder == false){
-        	System.out.println("You need to gain weight and weight training.");
+        	result = "You need to gain weight and weight training.";
         }
     }
 
@@ -38,4 +39,7 @@ public class MuscularRule {
     	this.isDisorder = isDisorder;
     }
 
+    public String getResult() {
+        return result;
+    }
 }
