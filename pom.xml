@@ -112,7 +112,6 @@
                     <execution>
                         <id>default-play2-enhance</id>
                         <goals>
-                            <goal>enhance</goal>
                             <goal>ebean-enhance</goal>
                         </goals>
                     </execution>

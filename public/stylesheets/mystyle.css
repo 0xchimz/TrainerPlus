@@ -44,3 +44,10 @@
     -moz-filter: invert(100%);
     -webkit-filter: invert(100%);
 }
+
+.bg-info {
+    padding-right: .9375rem;
+    padding-left: .9375rem;
+    margin-right: auto;
+    margin-left: auto;
+}
