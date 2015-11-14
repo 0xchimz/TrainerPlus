@@ -243,10 +243,10 @@ public class ExerciseGenerator {
     }
 
     public ArrayList<Day> generate(int day, boolean isIntense) {
-        if(day == 2) create2DaysExercise(isIntense);
-        else if(day == 3) create3DaysExercise(isIntense);
-        else if(day == 4) create4DaysExercise(isIntense);
-        else if(day == 5) create5DaysExercise(isIntense);
+        if(day == 2) return create2DaysExercise(isIntense);
+        else if(day == 3) return create3DaysExercise(isIntense);
+        else if(day == 4) return create4DaysExercise(isIntense);
+        else if(day == 5) return create5DaysExercise(isIntense);
         else return null;
     }
 }
