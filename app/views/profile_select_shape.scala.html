@@ -35,15 +35,11 @@
         if (count>1) {
             return;
         }
-        if (count==1 && obj == temp) {
-            $(obj).css("background", "transparent");
-            $(obj).find("img").removeClass("inverse");
-            $(obj).css("color", "black");
+        if (count==1) {
+            $(temp).css("background", "transparent");
+            $(temp).find("img").removeClass("inverse");
+            $(temp).css("color", "black");
             count--;
-            return;
-        }
-        if (count==1){
-            return;
         }
         count++;
         size = num;
