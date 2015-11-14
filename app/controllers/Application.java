@@ -13,7 +13,7 @@ import static org.easyrules.core.RulesEngineBuilder.aNewRulesEngine;
  */
 public class Application extends Controller {
     public static Result index() {
-        return ok(index.render(""));
+        return ok(base_with_nav.render());
     }
 
     public static Result submit() {
