@@ -3,6 +3,11 @@ package rules;
 import org.easyrules.annotation.Action;
 import org.easyrules.annotation.Condition;
 import org.easyrules.annotation.Rule;
+import rules.exercise.Day;
+import rules.exercise.Exercise;
+import rules.exercise.ExerciseGenerator;
+
+import java.util.ArrayList;
 
 @Rule(name = "Exercise Schedule rule", description = "Generate the exercise schedule based on free-days")
 public class ExerciseScheduleRule {
@@ -13,7 +18,7 @@ public class ExerciseScheduleRule {
     private int day;
     private boolean isIntense;
     private String gender;
-    private String result;
+    private ArrayList<Day> result;
 
     @Condition
     public boolean checkInput() {
@@ -24,14 +29,14 @@ public class ExerciseScheduleRule {
     @Action(order = 1)
     public void Intense() throws Exception {
         if (isIntense == true){
-        	result = "generate Exercise Schedule";
+            result = new ExerciseGenerator().generate(day, isIntense);
         }
     }
     
     @Action(order = 2)
     public void notIntense() throws Exception {
         if (isIntense == false){
-        	result = "generate Exercise Schedule";
+            result = new ExerciseGenerator().generate(day, isIntense);
         }
     }
 
@@ -41,7 +46,7 @@ public class ExerciseScheduleRule {
         this.gender = gender;
     }
 
-    public String getResult() {
+    public ArrayList<Day> getResult() {
         return result;
     }
 }
