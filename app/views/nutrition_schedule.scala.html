@@ -1,3 +1,8 @@
+@(list :List[rules.nutrition.Nutrition])
+@import rules.nutrition.Nutrition;
+@import rules.nutrition.Fat;
+@import rules.nutrition.Protein;
+@import rules.nutrition.Carbohydrate;
 @base_with_nav("nutrition_schedule")(content)
 
 @content = {
@@ -15,24 +20,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+              <tr>
                 <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                @list.zipWithIndex.map { case (nu, index) =>
+                    <td>
+                      @nu.getAmount();
+                    </td>
+                }
+              </tr>
             </tbody>
         </table>
 

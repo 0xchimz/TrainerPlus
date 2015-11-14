@@ -6,3 +6,6 @@
 /.idea
 /.settings
 .DS_Store
+RUNNING_PID
+.classpath
+.project
