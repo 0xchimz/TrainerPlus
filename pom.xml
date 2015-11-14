@@ -11,10 +11,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <play2.version>2.2.1</play2.version>
-        <play2-scala.version>2.10</play2-scala.version>
-        <play2.plugin.version>1.0.0-alpha5</play2.plugin.version>
-        <scala.version>2.10.2</scala.version>
+        <play2.version>2.3.4</play2.version>
+        <play2-scala.version>2.11</play2-scala.version>
+        <scala.version>2.11.7</scala.version>
+        <play2.plugin.version>1.0.0-beta3</play2.plugin.version>
+        <sbt-compiler.plugin.version>1.0.0-beta5</sbt-compiler.plugin.version>
     </properties>
     <repositories>
         <repository>
@@ -28,6 +29,11 @@
     </repositories>
     <dependencies>
         <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
@@ -39,6 +45,21 @@
         </dependency>
         <dependency>
             <groupId>com.typesafe.play</groupId>
+            <artifactId>play-java-ebean_${play2-scala.version}</artifactId>
+            <version>${play2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-java-jdbc_${play2-scala.version}</artifactId>
+            <version>${play2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-java-ws_${play2-scala.version}</artifactId>
+            <version>2.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
             <artifactId>play-java_${play2-scala.version}</artifactId>
             <version>${play2.version}</version>
         </dependency>
@@ -46,6 +67,27 @@
             <groupId>org.easyrules</groupId>
             <artifactId>easyrules-core</artifactId>
             <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>1.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-java-jpa_${play2-scala.version}</artifactId>
+            <version>${play2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-test_${play2-scala.version}</artifactId>
+            <version>${play2.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
@@ -67,6 +109,23 @@
                 <artifactId>play2-maven-plugin</artifactId>
                 <version>${play2.plugin.version}</version>
                 <extensions>true</extensions>
+                <executions>
+                    <!--<execution>-->
+                        <!--<id>default-play2-compile-assets</id>-->
+                        <!--<goals>-->
+                            <!--<goal>closure-compile</goal>-->
+                            <!--<goal>coffee-compile</goal> -->
+                            <!--<goal>less-compile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                    <execution>
+                        <id>default-play2-enhance</id>
+                        <goals>
+                            <goal>enhance</goal>
+                            <goal>ebean-enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>com.google.code.play2-maven-plugin</groupId>
@@ -76,8 +135,14 @@
                 </dependencies>
                 <configuration>
                     <mainLang>java</mainLang>
+                    <serverJvmArgs>-DapplyEvolutions.default=true</serverJvmArgs>
                 </configuration>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>com.google.code.sbt-compiler-maven-plugin</groupId>-->
+                <!--<artifactId>sbt-compiler-maven-plugin</artifactId>-->
+                <!--<version>${sbt-compiler.plugin.version}</version>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>
