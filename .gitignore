@@ -1,5 +1,6 @@
 /*.iml
 /logs
+/RUNNING_PID
 /target
 /project/project
 /project/target
