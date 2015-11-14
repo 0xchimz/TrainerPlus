@@ -10,6 +10,6 @@ import views.html.*;
 public class Authentication extends Controller {
 
     public static Result index() {
-        return ok(base_with_nav.render());
+        return ok(login.render());
     }
 }

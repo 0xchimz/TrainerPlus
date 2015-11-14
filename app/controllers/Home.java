@@ -2,7 +2,7 @@ package controllers;
 
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.base_with_nav;
+import views.html.home;
 
 /**
  * Created by Frank on 11/14/2015 AD.
@@ -10,6 +10,6 @@ import views.html.base_with_nav;
 public class Home extends Controller {
 
     public static Result index() {
-        return ok(base_with_nav.render());
+        return ok(home.render());
     }
 }
