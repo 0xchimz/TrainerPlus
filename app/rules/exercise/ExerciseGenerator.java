@@ -247,4 +247,5 @@ public class ExerciseGenerator {
         else if(day == 5) return create5DaysExercise(isIntense);
         else return null;
     }
+
 }
