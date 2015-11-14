@@ -1,34 +1,34 @@
 2015-09-28 10:48:44,992 - [INFO] - from play in pool-4-thread-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-09-28 10:48:48,711 - [INFO] - from play in play-internal-execution-context-1 
+2015-09-28 10:48:48,711 - [INFO] - from play in play-internal-execution-context-1
 Application started (Dev)
 
-2015-09-28 10:49:24,022 - [INFO] - from play in play-internal-execution-context-1 
+2015-09-28 10:49:24,022 - [INFO] - from play in play-internal-execution-context-1
 Application started (Dev)
 
-2015-09-28 10:51:41,556 - [INFO] - from play in play-internal-execution-context-1 
+2015-09-28 10:51:41,556 - [INFO] - from play in play-internal-execution-context-1
 Application started (Dev)
 
-2015-09-28 10:57:31,052 - [INFO] - from play in play-internal-execution-context-1 
+2015-09-28 10:57:31,052 - [INFO] - from play in play-internal-execution-context-1
 Application started (Dev)
 
-2015-09-28 10:57:59,180 - [INFO] - from play in play-internal-execution-context-1 
+2015-09-28 10:57:59,180 - [INFO] - from play in play-internal-execution-context-1
 Application started (Dev)
 
-2015-09-28 10:58:12,978 - [INFO] - from play in play-internal-execution-context-1 
+2015-09-28 10:58:12,978 - [INFO] - from play in play-internal-execution-context-1
 Application started (Dev)
 
-2015-09-28 11:14:27,816 - [INFO] - from play in main 
+2015-09-28 11:14:27,816 - [INFO] - from play in main
 Application started (Prod)
 
-2015-09-28 11:14:27,933 - [INFO] - from play in main 
+2015-09-28 11:14:27,933 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-09-28 11:14:43,637 - [ERROR] - from play in play-internal-execution-context-1 
+2015-09-28 11:14:43,637 - [ERROR] - from play in play-internal-execution-context-1
 Cannot invoke the action, eventually got an error: java.lang.NumberFormatException: For input string: "0.5"
 
-2015-09-28 11:14:43,644 - [ERROR] - from application in play-internal-execution-context-1 
+2015-09-28 11:14:43,644 - [ERROR] - from application in play-internal-execution-context-1
 
 
 ! @6nida8eh6 - Internal server error, for (POST) [/submit] ->
@@ -80,10 +80,10 @@ Caused by: java.lang.NumberFormatException: For input string: "0.5"
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
 	... 4 common frames omitted
 
-2015-09-28 11:15:25,306 - [ERROR] - from play in play-internal-execution-context-1 
+2015-09-28 11:15:25,306 - [ERROR] - from play in play-internal-execution-context-1
 Cannot invoke the action, eventually got an error: java.lang.NumberFormatException: For input string: "0.5"
 
-2015-09-28 11:15:25,307 - [ERROR] - from application in play-internal-execution-context-1 
+2015-09-28 11:15:25,307 - [ERROR] - from application in play-internal-execution-context-1
 
 
 ! @6nidaao7l - Internal server error, for (POST) [/submit] ->
@@ -135,111 +135,110 @@ Caused by: java.lang.NumberFormatException: For input string: "0.5"
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
 	... 4 common frames omitted
 
-2015-09-28 11:15:38,915 - [INFO] - from play in main 
+2015-09-28 11:15:38,915 - [INFO] - from play in main
 Application started (Prod)
 
-2015-09-28 11:15:39,021 - [INFO] - from play in main 
+2015-09-28 11:15:39,021 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-09-28 11:16:10,868 - [INFO] - from play in main 
+2015-09-28 11:16:10,868 - [INFO] - from play in main
 Application started (Prod)
 
-2015-09-28 11:16:10,975 - [INFO] - from play in main 
+2015-09-28 11:16:10,975 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-10-19 12:36:35,640 - [INFO] - from play in main 
+2015-10-19 12:36:35,640 - [INFO] - from play in main
 Application started (Prod)
 
-2015-10-19 12:36:35,831 - [INFO] - from play in main 
+2015-10-19 12:36:35,831 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 00:27:03,297 - [INFO] - from play in main 
+2015-11-15 00:27:03,297 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 00:27:03,412 - [INFO] - from play in main 
+2015-11-15 00:27:03,412 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 00:49:09,227 - [INFO] - from play in main 
+2015-11-15 00:49:09,227 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 00:49:09,341 - [INFO] - from play in main 
+2015-11-15 00:49:09,341 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 00:51:01,936 - [INFO] - from play in main 
+2015-11-15 00:51:01,936 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 00:51:02,051 - [INFO] - from play in main 
+2015-11-15 00:51:02,051 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 02:43:11,918 - [INFO] - from play in main 
+2015-11-15 02:43:11,918 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 02:43:12,033 - [INFO] - from play in main 
+2015-11-15 02:43:12,033 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 02:45:22,503 - [INFO] - from play in main 
+2015-11-15 02:45:22,503 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 02:45:22,621 - [INFO] - from play in main 
+2015-11-15 02:45:22,621 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 02:59:38,595 - [INFO] - from play in main 
+2015-11-15 02:59:38,595 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 02:59:38,715 - [INFO] - from play in main 
+2015-11-15 02:59:38,715 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:01:46,218 - [INFO] - from play in main 
+2015-11-15 03:01:46,218 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:01:46,330 - [INFO] - from play in main 
+2015-11-15 03:01:46,330 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:08:32,500 - [INFO] - from play in main 
+2015-11-15 03:08:32,500 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:08:32,618 - [INFO] - from play in main 
+2015-11-15 03:08:32,618 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:15:29,992 - [INFO] - from play in main 
+2015-11-15 03:15:29,992 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:15:30,105 - [INFO] - from play in main 
+2015-11-15 03:15:30,105 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:19:44,717 - [INFO] - from play in main 
+2015-11-15 03:19:44,717 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:19:44,837 - [INFO] - from play in main 
+2015-11-15 03:19:44,837 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:20:36,377 - [INFO] - from play in main 
+2015-11-15 03:20:36,377 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:20:36,487 - [INFO] - from play in main 
+2015-11-15 03:20:36,487 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:22:20,007 - [INFO] - from play in main 
+2015-11-15 03:22:20,007 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:22:20,129 - [INFO] - from play in main 
+2015-11-15 03:22:20,129 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:23:31,800 - [INFO] - from play in main 
+2015-11-15 03:23:31,800 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:23:31,918 - [INFO] - from play in main 
+2015-11-15 03:23:31,918 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:25:24,335 - [INFO] - from play in main 
+2015-11-15 03:25:24,335 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:25:24,450 - [INFO] - from play in main 
+2015-11-15 03:25:24,450 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 03:25:50,188 - [INFO] - from play in main 
+2015-11-15 03:25:50,188 - [INFO] - from play in main
 Application started (Prod)
 
-2015-11-15 03:25:50,303 - [INFO] - from play in main 
+2015-11-15 03:25:50,303 - [INFO] - from play in main
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
-
