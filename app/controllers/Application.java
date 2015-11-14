@@ -18,7 +18,7 @@ public class Application extends Controller {
 
 
     public static Result index() {
-        return ok(base_with_nav.render());
+        return ok(select_schedule.render());
     }
 
     public static Result submit() {
