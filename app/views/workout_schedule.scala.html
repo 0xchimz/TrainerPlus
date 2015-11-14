@@ -1,3 +1,8 @@
+@(days: List[rules.exercise.Day])
+@import rules.exercise.Day;
+@import rules.exercise.Exercise;
+@import java.util;
+
 @base_with_nav("workout_schedule")(content)
 
 @content = {
@@ -26,26 +31,20 @@
                      </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @days.zipWithIndex.map { case (day, index) =>
+                        @day.getExercises().zipWithIndex.map{ case (exercise, index2) =>
+                          <tr>
+                            @if(index2 == 0){
+                                <th scope="row">@day.getDay()</th>
+                            } else {
+                              <th scope="row"></th>
+                            }
+                            <td>@exercise.getName()</td>
+                            <td>@exercise.getSets()</td>
+                            <td>@exercise.getReps()</td>
+                          </tr>
+                        }
+                    }
                 </tbody>
             </table>
         </div>
@@ -78,6 +77,8 @@
                 </table>
             </div>
         </div>
+        <a type="link" href="@routes.Schedule.index()" class="btn btn-success-outline btn-lg">Back</a>
+</div>
 </div>
 <div class="col-md-2 col-lg-3">
 </div>
