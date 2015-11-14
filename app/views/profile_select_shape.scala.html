@@ -9,21 +9,15 @@
                     <h3 class="card-title text-center">Goal</h3>
                     <form class="form-row">
                         <div class="card text-center btn btn-secondary" onclick="changeColor(this,0)" style="width: 100%;">
-                            <img class="card-img-top" src="http://k.lnwfile.com/_/k/_raw/15/uj/2q.png" style="height:300px;">
+                            <img class="card-img-top margin-top" src="/assets/images/running.png" style="height:200px;">
                             <div class="card-block">
-                                <h4 class="card-title">Card title</h4>
+                                <h4 class="card-title">Lose Weight</h4>
                             </div>
                         </div>
                         <div class="card text-center btn btn-secondary" onclick="changeColor(this,1)" style="width: 100%;">
-                            <img class="card-img-top" src="http://img.kapook.com/u/thachapol/10/a2001.jpg" style="height:300px;">
+                            <img class="card-img-top margin-top" src="/assets/images/dumbbells.png" style="height:200px;">
                             <div class="card-block">
-                                <h4 class="card-title">Card title</h4>
-                            </div>
-                        </div>
-                        <div class="card text-center btn btn-secondary" onclick="changeColor(this,2)" style="width: 100%;">
-                            <img class="card-img-top" src="http://www.tuvayanon.net/rch520717n.jpg" style="height:300px;">
-                            <div class="card-block">
-                                <h4 class="card-title">Card title</h4>
+                                <h4 class="card-title">Gain Weight</h4>
                             </div>
                         </div>
                 </div>
@@ -41,9 +35,9 @@
         if (count>1) {
             return;
         }
-        console.log($(obj).css("background"));
         if (count==1 && obj == temp) {
             $(obj).css("background", "transparent");
+            $(obj).find("img").removeClass("inverse");
             $(obj).css("color", "black");
             count--;
             return;
@@ -53,8 +47,10 @@
         }
         count++;
         size = num;
+        $("#input_goal").val(num);
         $(obj).css("background", "#29b664");
         $(obj).css("color", "white");
+        $(obj).find('img').addClass("inverse");
         temp = obj;
     }
 </script>

@@ -153,3 +153,262 @@ Application started (Prod)
 2015-10-19 12:36:35,831 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
+2015-11-14 22:18:19,525 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-14 22:18:19,690 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-14 22:18:33,900 - [ERROR] - from application in New I/O worker #1 
+
+
+! Internal server error, for (GET) [/select_schedule] ->
+
+java.lang.UnsupportedClassVersionError: controllers/Schedule : Unsupported major.minor version 52.0
+	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.7.0_79]
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:800) ~[na:1.7.0_79]
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142) ~[na:1.7.0_79]
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:449) ~[na:1.7.0_79]
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:71) ~[na:1.7.0_79]
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:361) ~[na:1.7.0_79]
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355) ~[na:1.7.0_79]
+	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.7.0_79]
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354) ~[na:1.7.0_79]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425) ~[na:1.7.0_79]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308) ~[na:1.7.0_79]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358) ~[na:1.7.0_79]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2$$anonfun$3.apply(Router.scala:177) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2$$anonfun$3.apply(Router.scala:176) ~[play_2.10-2.2.1.jar:2.2.1]
+	at scala.collection.mutable.MapLike$class.getOrElseUpdate(MapLike.scala:189) ~[scala-library-2.10.2.jar:na]
+	at scala.collection.concurrent.TrieMap.getOrElseUpdate(TrieMap.scala:632) ~[scala-library-2.10.2.jar:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.<init>(Router.scala:176) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.core.Router$HandlerInvoker$$anon$7.call(Router.scala:175) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.core.Router$HandlerInvoker$$anon$7.call(Router.scala:173) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.core.Router$Routes$class.invokeHandler(Router.scala:375) ~[play_2.10-2.2.1.jar:2.2.1]
+	at Routes$.invokeHandler(routes_routing.scala:15) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4.apply(routes_routing.scala:93) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$4.apply(routes_routing.scala:93) ~[classes/:na]
+	at play.core.Router$Routes$class.call(Router.scala:235) ~[play_2.10-2.2.1.jar:2.2.1]
+	at Routes$.call(routes_routing.scala:15) ~[classes/:na]
+	at Routes$$anonfun$routes$1.applyOrElse(routes_routing.scala:92) ~[classes/:na]
+	at Routes$$anonfun$routes$1.applyOrElse(routes_routing.scala:64) ~[classes/:na]
+	at scala.PartialFunction$Lifted.apply(PartialFunction.scala:218) ~[scala-library-2.10.2.jar:na]
+	at scala.PartialFunction$Lifted.apply(PartialFunction.scala:214) ~[scala-library-2.10.2.jar:na]
+	at play.core.Router$Routes$class.handlerFor(Router.scala:363) ~[play_2.10-2.2.1.jar:2.2.1]
+	at Routes$.handlerFor(routes_routing.scala:15) ~[classes/:na]
+	at play.api.GlobalSettings$$anonfun$onRouteRequest$1$$anonfun$apply$2.apply(GlobalSettings.scala:113) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.api.GlobalSettings$$anonfun$onRouteRequest$1$$anonfun$apply$2.apply(GlobalSettings.scala:112) ~[play_2.10-2.2.1.jar:2.2.1]
+	at scala.Option.flatMap(Option.scala:170) ~[scala-library-2.10.2.jar:na]
+	at play.api.GlobalSettings$$anonfun$onRouteRequest$1.apply(GlobalSettings.scala:112) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.api.GlobalSettings$$anonfun$onRouteRequest$1.apply(GlobalSettings.scala:112) ~[play_2.10-2.2.1.jar:2.2.1]
+	at scala.Option.flatMap(Option.scala:170) ~[scala-library-2.10.2.jar:na]
+	at play.api.GlobalSettings$class.onRouteRequest(GlobalSettings.scala:112) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.api.DefaultGlobal$.onRouteRequest(GlobalSettings.scala:189) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.api.GlobalSettings$class.onRequestReceived(GlobalSettings.scala:75) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.api.DefaultGlobal$.onRequestReceived(GlobalSettings.scala:189) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.Server$$anonfun$sendHandler$1$1.apply(Server.scala:50) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.Server$$anonfun$sendHandler$1$1.apply(Server.scala:49) ~[play_2.10-2.2.1.jar:2.2.1]
+	at scala.util.Success$$anonfun$map$1.apply(Try.scala:206) ~[scala-library-2.10.2.jar:na]
+	at scala.util.Try$.apply(Try.scala:161) ~[scala-library-2.10.2.jar:na]
+	at scala.util.Success.map(Try.scala:206) ~[scala-library-2.10.2.jar:na]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:49) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:82) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:81) [play_2.10-2.2.1.jar:2.2.1]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library-2.10.2.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:81) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:35) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$8.apply(PlayDefaultUpstreamHandler.scala:117) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$8.apply(PlayDefaultUpstreamHandler.scala:117) [play_2.10-2.2.1.jar:2.2.1]
+	at scala.util.Either.fold(Either.scala:98) [scala-library-2.10.2.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:111) [play_2.10-2.2.1.jar:2.2.1]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.7.0.Final.jar:na]
+	at com.typesafe.netty.http.pipelining.HttpPipeliningHandler.messageReceived(HttpPipeliningHandler.java:62) [netty-http-pipelining-1.1.2.jar:na]
+	at org.jboss.netty.channel.SimpleChannelHandler.handleUpstream(SimpleChannelHandler.java:88) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:108) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:459) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:536) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:435) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:109) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:312) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:90) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty-3.7.0.Final.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-14 22:18:33,918 - [ERROR] - from application in New I/O worker #1 
+Error while rendering default error page
+scala.MatchError: java.lang.UnsupportedClassVersionError: controllers/Schedule : Unsupported major.minor version 52.0 (of class java.lang.UnsupportedClassVersionError)
+	at play.api.GlobalSettings$class.onError(GlobalSettings.scala:131) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.api.DefaultGlobal$.onError(GlobalSettings.scala:189) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.Server$class.logExceptionAndGetResult$1(Server.scala:73) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:83) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:81) [play_2.10-2.2.1.jar:2.2.1]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library-2.10.2.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:81) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:35) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$8.apply(PlayDefaultUpstreamHandler.scala:117) [play_2.10-2.2.1.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$8.apply(PlayDefaultUpstreamHandler.scala:117) [play_2.10-2.2.1.jar:2.2.1]
+	at scala.util.Either.fold(Either.scala:98) [scala-library-2.10.2.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:111) [play_2.10-2.2.1.jar:2.2.1]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.7.0.Final.jar:na]
+	at com.typesafe.netty.http.pipelining.HttpPipeliningHandler.messageReceived(HttpPipeliningHandler.java:62) [netty-http-pipelining-1.1.2.jar:na]
+	at org.jboss.netty.channel.SimpleChannelHandler.handleUpstream(SimpleChannelHandler.java:88) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:108) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:459) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:536) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:435) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:109) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:312) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:90) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108) [netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty-3.7.0.Final.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-14 22:20:30,664 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-14 22:20:30,759 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-14 22:22:55,401 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-14 22:22:55,514 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-14 22:27:01,750 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-14 22:27:01,834 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-14 22:27:56,053 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-14 22:27:56,160 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-14 22:30:33,334 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-14 22:30:33,448 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:03:38,702 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:03:38,836 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:30:03,728 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:30:03,889 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:34:22,835 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:34:22,938 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:37:27,977 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:37:28,100 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:42:34,655 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:42:34,764 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:47:29,767 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:47:29,888 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:48:37,442 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:48:37,522 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:49:31,213 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:49:31,322 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:50:16,541 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:50:16,628 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 00:59:37,201 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 00:59:37,483 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 01:05:26,405 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 01:05:26,494 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 01:07:31,796 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 01:07:31,881 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 01:09:46,691 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 01:09:46,780 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 01:11:42,311 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 01:11:42,447 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
