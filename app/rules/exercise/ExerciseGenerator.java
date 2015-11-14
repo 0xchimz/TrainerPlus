@@ -31,85 +31,111 @@ public class ExerciseGenerator {
     private ArrayList<Exercise> trapz = new ArrayList<Exercise>();
     private ArrayList<Exercise> shoulders = new ArrayList<Exercise>();
 
-    public ExerciseGenerator() {
-    }
 
-    public void addChestExercise() {
+    public void addChestExercise(boolean isIntense) {
         this.chests.add(new BarbellBenchPress());
         this.chests.add(new DipForChest());
-        this.chests.add(new DumbbellFly());
-        this.chests.add(new InclineDumbbellBenchPress());
+        if(!isIntense) {
+            this.chests.add(new DumbbellFly());
+            this.chests.add(new InclineDumbbellBenchPress());
+        }
     }
 
-    public void addBackExercise() {
+    public void addBackExercise(boolean isIntense) {
         this.backs.add(new BackExtension());
         this.backs.add(new BarbellDeadlift());
-        this.backs.add(new BarbellRow());
-        this.backs.add(new LatPullDown());
+
+        if(!isIntense) {
+            this.backs.add(new BarbellRow());
+            this.backs.add(new LatPullDown());
+        }
     }
 
-    public void addAbsExercise() {
+    public void addAbsExercise(boolean isIntense) {
         this.abs.add(new Crunch());
         this.abs.add(new ObliqueCrunch());
-        this.abs.add(new StandingBarbellTwist());
+
+        if(!isIntense) {
+            this.abs.add(new StandingBarbellTwist());
+        }
     }
 
-    public void addLegExercise() {
+    public void addLegExercise(boolean isIntense) {
         this.legs.add(new BarbellSquat());
-        this.legs.add(new LegExtension());
-        this.legs.add(new LegPress());
+
+        if(!isIntense) {
+            this.legs.add(new LegExtension());
+            this.legs.add(new LegPress());
+        }
     }
 
-    public void addHamExercise() {
+    public void addHamExercise(boolean isIntense) {
         this.ham.add(new BarbellStiffLegDeadlift());
-        this.ham.add(new SeatedLegCurl());
+
+        if(!isIntense) {
+            this.ham.add(new SeatedLegCurl());
+        }
     }
 
-    public void addCalfExercise() {
+    public void addCalfExercise(boolean isIntense) {
         this.calf.add(new BarbellStandingCalfRaise());
-        this.calf.add(new SeatedCalfRaise());
+
+        if(!isIntense) {
+            this.calf.add(new SeatedCalfRaise());
+        }
     }
 
-    public void addBicepsExercise() {
+    public void addBicepsExercise(boolean isIntense) {
         this.biceps.add(new BarbellCurl());
-        this.biceps.add(new PreacherCurl());
+
+        if(!isIntense) {
+            this.biceps.add(new PreacherCurl());
+        }
     }
 
-    public void addTricpesExercise() {
+    public void addTricpesExercise(boolean isIntense) {
         this.triceps.add(new TricepsExtension());
-        this.triceps.add(new TricepsPushDown());
+
+        if(!isIntense) {
+            this.triceps.add(new TricepsPushDown());
+        }
     }
 
-    public void addTrapzExercise() {
+    public void addTrapzExercise(boolean isIntense) {
         this.trapz.add(new BarbellShrug());
     }
 
-    public void addShoulderExercise() {
+    public void addShoulderExercise(boolean isIntense) {
         this.shoulders.add(new DumbbellShoulderPress());
         this.shoulders.add(new HighPull());
-        this.shoulders.add(new ReverseFly());
-        this.shoulders.add(new SideLateralRaise());
+
+        if(!isIntense) {
+            this.shoulders.add(new ReverseFly());
+            this.shoulders.add(new SideLateralRaise());
+        }
     }
 
-    public void addAll (){
-        this.addAbsExercise();
-        this.addBackExercise();
-        this.addBicepsExercise();
-        this.addCalfExercise();
-        this.addChestExercise();
-        this.addHamExercise();
-        this.addLegExercise();
-        this.addShoulderExercise();
-        this.addTrapzExercise();
-        this.addTricpesExercise();
+    public void addAll (boolean isIntense){
+
+        this.addAbsExercise(isIntense);
+        this.addBackExercise(isIntense);
+        this.addBicepsExercise(isIntense);
+        this.addCalfExercise(isIntense);
+        this.addChestExercise(isIntense);
+        this.addHamExercise(isIntense);
+        this.addLegExercise(isIntense);
+        this.addShoulderExercise(isIntense);
+        this.addTrapzExercise(isIntense);
+        this.addTricpesExercise(isIntense);
     }
 
-    public ArrayList<Day> create5DaysExercise() {
-        this.addAll();
+    public ArrayList<Day> create5DaysExercise(boolean isIntense) {
+        this.addAll(isIntense);
         ArrayList<Day> days = new ArrayList<Day>();
 
         ArrayList<Exercise> day1 = new ArrayList<Exercise>(this.chests);
         day1.add(this.abs.get(0));
+
 
         ArrayList<Exercise> day2 = new ArrayList<Exercise>(this.backs);
         day2.addAll(this.trapz);
@@ -135,8 +161,8 @@ public class ExerciseGenerator {
         return days;
     }
 
-    public ArrayList<Day> create4DaysExercise() {
-        this.addAll();
+    public ArrayList<Day> create4DaysExercise(boolean isIntense) {
+        this.addAll(isIntense);
         ArrayList<Day> days = new ArrayList<Day>();
 
         ArrayList<Exercise> day1 = new ArrayList<Exercise>(this.chests);
@@ -164,8 +190,8 @@ public class ExerciseGenerator {
         return days;
     }
 
-    public ArrayList<Day> create3DaysExercise() {
-        this.addAll();
+    public ArrayList<Day> create3DaysExercise(boolean isIntense) {
+        this.addAll(isIntense);
         ArrayList<Day> days = new ArrayList<Day>();
 
         ArrayList<Exercise> day1 = new ArrayList<Exercise>(this.chests);
@@ -189,8 +215,8 @@ public class ExerciseGenerator {
         return days;
     }
 
-    public ArrayList<Day> create2DaysExercise() {
-        this.addAll();
+    public ArrayList<Day> create2DaysExercise(boolean isIntense) {
+        this.addAll(isIntense);
         ArrayList<Day> days = new ArrayList<Day>();
 
         ArrayList<Exercise> day1 = new ArrayList<Exercise>();
@@ -214,5 +240,13 @@ public class ExerciseGenerator {
         days.add(new Day("2",day2));
 
         return days;
+    }
+
+    public ArrayList<Day> generate(int day, boolean isIntense) {
+        if(day == 2) create2DaysExercise(isIntense);
+        else if(day == 3) create3DaysExercise(isIntense);
+        else if(day == 4) create4DaysExercise(isIntense);
+        else if(day == 5) create5DaysExercise(isIntense);
+        else return null;
     }
 }
