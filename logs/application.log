@@ -159,21 +159,21 @@ Application started (Prod)
 2558-11-14 15:13:11,680 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-14 19:29:49,808 - [INFO] - from play in main 
+2015-11-14 19:08:08,879 - [INFO] - from play in main 
 Application started (Prod)
 
-2015-11-14 19:29:49,976 - [INFO] - from play in main 
+2015-11-14 19:08:09,139 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-14 19:29:50,717 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+2015-11-14 19:08:32,783 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.NumberFormatException: empty String
 
-2015-11-14 19:29:50,729 - [ERROR] - from application in play-internal-execution-context-1 
+2015-11-14 19:08:32,794 - [ERROR] - from application in play-internal-execution-context-1 
 
 
-! @6o5jhf2gh - Internal server error, for (GET) [/] ->
+! @6o5jeka59 - Internal server error, for (POST) [/submit] ->
 
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+play.api.Application$$anon$1: Execution exception[[NumberFormatException: empty String]]
 	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.1.jar:2.2.1]
 	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.1.jar:2.2.1]
 	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10-2.2.1.jar:2.2.1]
@@ -198,13 +198,13 @@ play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.2.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.2.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.2.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at views.html.index$.apply(index.template.scala:38) ~[classes/:na]
-	at views.html.index$.render(index.template.scala:69) ~[classes/:na]
-	at views.html.index.render(index.template.scala) ~[classes/:na]
-	at controllers.Application.index(Application.java:16) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$1$$anonfun$apply$1.apply(routes_routing.scala:53) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$1$$anonfun$apply$1.apply(routes_routing.scala:53) ~[classes/:na]
+Caused by: java.lang.NumberFormatException: empty String
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1842) ~[na:1.8.0_60]
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110) ~[na:1.8.0_60]
+	at java.lang.Double.parseDouble(Double.java:538) ~[na:1.8.0_60]
+	at controllers.Application.submit(Application.java:23) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:61) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:61) ~[classes/:na]
 	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.1.jar:2.2.1]
 	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.1.jar:2.2.1]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.1.jar:2.2.1]
@@ -220,28 +220,34 @@ Caused by: java.lang.NullPointerException: null
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
 	... 4 common frames omitted
 
-2015-11-14 19:30:31,317 - [INFO] - from play in main 
+2015-11-14 20:32:16,223 - [INFO] - from play in main 
 Application started (Prod)
 
-2015-11-14 19:30:31,422 - [INFO] - from play in main 
+2015-11-14 20:32:16,389 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-14 19:31:42,774 - [INFO] - from play in main 
+2015-11-14 20:33:58,032 - [INFO] - from play in main 
 Application started (Prod)
 
-2015-11-14 19:31:42,866 - [INFO] - from play in main 
+2015-11-14 20:33:58,113 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-14 19:32:44,222 - [INFO] - from play in main 
+2015-11-14 20:49:25,175 - [INFO] - from play in main 
 Application started (Prod)
 
-2015-11-14 19:32:44,305 - [INFO] - from play in main 
+2015-11-14 20:49:25,435 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-14 19:37:46,418 - [INFO] - from play in main 
+2015-11-14 21:18:43,796 - [INFO] - from play in main 
 Application started (Prod)
 
-2015-11-14 19:37:46,538 - [INFO] - from play in main 
+2015-11-14 21:18:44,670 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-14 21:30:01,060 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-14 21:30:01,169 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
 2015-11-14 20:20:48,574 - [INFO] - from play in main 

@@ -1,0 +1,39 @@
+
+.border-radius-zero {
+    border-radius: 0px;
+}
+
+.border-white {
+    border-color: white;
+}
+
+.margin-top {
+    margin-top: 30px;
+}
+
+.margin-small-top {
+    margin-top: 10px;
+}
+
+.paging {
+    padding: 30px;
+}
+
+.paging-top-lg {
+    padding-top: 80px;
+}
+
+.paging-bottom-lg {
+    padding-bottom: 80px;
+}
+
+
+.btn-white {
+    border-color: white;
+    color: white;
+    background: transparent;
+}
+
+.addon-fixed-width{
+    width: 100px;
+}
