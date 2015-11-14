@@ -153,6 +153,30 @@ Application started (Prod)
 2015-10-19 12:36:35,831 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
+<<<<<<< HEAD
+2015-11-15 01:37:57,179 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 01:37:57,920 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 01:40:40,624 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 01:40:40,749 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 01:46:48,881 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 01:46:49,010 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-15 01:47:57,056 - [INFO] - from play in main 
+Application started (Prod)
+
+2015-11-15 01:47:57,178 - [INFO] - from play in main 
+=======
 2015-11-15 00:11:53,805 - [INFO] - from play in main 
 Application started (Prod)
 
@@ -181,5 +205,6 @@ Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 Application started (Prod)
 
 2015-11-15 00:50:41,767 - [INFO] - from play in main 
+>>>>>>> e0f649767086ef37ec4399bb25dc6ca840cb8edb
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
