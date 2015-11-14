@@ -1,51 +1,39 @@
-@base_with_nav("profile_select_shape")(content)
 
-@content = {
-<div class="container margin-top">
-    <div class="row">
-        <div class="col-md-2 col-lg-3">
+
+    <div class="container margin-top">
+        <div class="row">
+            <div class="col-md-2 col-lg-3">
         </div>
-        <div class="col-xs-12 col-md-8 col-lg-6">
-            <div class="card card-block">
-                <h3 class="card-title text-center">Goal</h3>
-                <form class="form-row">
-                    <div class="card text-center btn btn-secondary" onclick="changeColor(this,0)" style="width: 100%;">
-                        <img class="card-img-top" src="http://k.lnwfile.com/_/k/_raw/15/uj/2q.png" style="height:300px;">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            {#                          <button class="btn btn-primary" type="button">Type 1</button>#}
-                            {#                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
+            <div class="col-xs-12 col-md-8 col-lg-6">
+                <div class="card card-block">
+                    <h3 class="card-title text-center">Goal</h3>
+                    <form class="form-row">
+                        <div class="card text-center btn btn-secondary" onclick="changeColor(this,0)" style="width: 100%;">
+                            <img class="card-img-top" src="http://k.lnwfile.com/_/k/_raw/15/uj/2q.png" style="height:300px;">
+                            <div class="card-block">
+                                <h4 class="card-title">Card title</h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card text-center btn btn-secondary" onclick="changeColor(this,1)" style="width: 100%;">
-                        <img class="card-img-top" src="http://img.kapook.com/u/thachapol/10/a2001.jpg" style="height:300px;">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            {#                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
-                            {#                            <button class="btn btn-primary" type="button">Type 2</button>#}
+                        <div class="card text-center btn btn-secondary" onclick="changeColor(this,1)" style="width: 100%;">
+                            <img class="card-img-top" src="http://img.kapook.com/u/thachapol/10/a2001.jpg" style="height:300px;">
+                            <div class="card-block">
+                                <h4 class="card-title">Card title</h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card text-center btn btn-secondary" onclick="changeColor(this,2)" style="width: 100%;">
-                        <img class="card-img-top" src="http://www.tuvayanon.net/rch520717n.jpg" style="height:300px;">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            {#                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
-                            {#                        <button class="btn btn-primary" type="button">Type 3</button>#}
+                        <div class="card text-center btn btn-secondary" onclick="changeColor(this,2)" style="width: 100%;">
+                            <img class="card-img-top" src="http://www.tuvayanon.net/rch520717n.jpg" style="height:300px;">
+                            <div class="card-block">
+                                <h4 class="card-title">Card title</h4>
+                            </div>
                         </div>
-                    </div>
-                    {#                    <div class="row">#}
-                    {#                        <div class="col-xs-12 col-md-4 col-lg-3 pull-right">#}
-                        {#                            <button type="submit" class="btn btn-primary btn-block">Save</button>#}
-                        {#                        </div>#}
-                    {#                    </div>#}
+                </div>
+            </div>
+            <div class="col-md-2 col-lg-3">
             </div>
         </div>
     </div>
-</div>
-<div class="col-md-2 col-lg-3">
-</div>
 
-<script>
+    <script>
     var count = 0;
     var temp = null;
     var size = -1;
@@ -70,5 +58,3 @@
         temp = obj;
     }
 </script>
-
-}
