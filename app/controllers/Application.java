@@ -12,6 +12,11 @@ import static org.easyrules.core.RulesEngineBuilder.aNewRulesEngine;
  * Created by Chin on 9/27/2015.
  */
 public class Application extends Controller {
+
+    private static ObesityRule obesityRule = new ObesityRule();
+    private static MuscularRule muscularRule = new MuscularRule();
+
+
     public static Result index() {
         return ok(index.render(""));
     }
@@ -21,8 +26,7 @@ public class Application extends Controller {
         String gender = dynamicForm.get("gender");
         String wph = dynamicForm.get("waistPerHip");
         double waistPerHip = Double.parseDouble(wph);
-        ObesityRule obesityRule = new ObesityRule();
-        MuscularRule muscularRule = new MuscularRule();
+
         obesityRule.setInput(gender, waistPerHip);
         muscularRule.setInput(true, false);
 
