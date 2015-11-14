@@ -9,6 +9,7 @@ public class Fat implements Nutrition {
     private double normalAmountFactor = 0.5;
     private double normalAmount;
     private String amount;
+    private String energy = "9 kcal/g";
 
     public Fat(double weight) {
         normalAmount = 2.2 * weight * normalAmountFactor;
@@ -22,4 +23,9 @@ public class Fat implements Nutrition {
     public String getAmount() {
         return this.amount;
     }
+
+    public String getEnergyPerGram() {
+        return this.energy;
+    }
+
 }

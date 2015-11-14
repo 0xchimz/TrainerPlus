@@ -13,6 +13,7 @@ public class Protein implements Nutrition {
     private double lowerAmount;
     private double upperAmount;
     private String amount;
+    private String energy = "4 kcal/g";
 
     public Protein(double weight, boolean isGainMuscle) {
         if(isGainMuscle) {
@@ -32,5 +33,9 @@ public class Protein implements Nutrition {
 
     public String getAmount() {
         return this.amount;
+    }
+
+    public String getEnergyPerGram() {
+        return this.energy;
     }
 }

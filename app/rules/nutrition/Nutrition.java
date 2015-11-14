@@ -6,4 +6,5 @@ package rules.nutrition;
 public interface Nutrition {
     public String getName();
     public String getAmount();
+    public String getEnergyPerGram();
 }

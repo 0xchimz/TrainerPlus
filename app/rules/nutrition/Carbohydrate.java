@@ -11,6 +11,7 @@ public class Carbohydrate implements Nutrition {
     private double lowerAmount;
     private double upperAmount;
     private String amount;
+    private String energy = "4 kcal/g";
 
     public Carbohydrate(double weight) {
             lowerAmount = 2.2 * weight * lowerAmountFactor;
@@ -24,5 +25,9 @@ public class Carbohydrate implements Nutrition {
 
     public String getAmount() {
         return this.amount;
+    }
+
+    public String getEnergyPerGram() {
+        return this.energy;
     }
 }
