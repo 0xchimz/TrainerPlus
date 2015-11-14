@@ -1,8 +1,6 @@
 package rules.exercise;
 
-import rules.exercise.abs.Crunch;
-import rules.exercise.abs.ObliqueCrunch;
-import rules.exercise.abs.StandingBarbellTwist;
+import rules.exercise.abs.*;
 import rules.exercise.chest.*;
 import rules.exercise.back.*;
 import rules.exercise.leg.*;
