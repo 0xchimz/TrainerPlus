@@ -15,5 +15,6 @@ libraryDependencies ++= Seq(
   javaWs,
   "org.mariadb.jdbc" % "mariadb-java-client" % "1.1.8",
   "org.mindrot" % "jbcrypt" % "0.3m",
+  "joda-time" % "joda-time" % "2.9.1",
   "org.easyrules" % "easyrules-core" % "2.1.0"
 )
