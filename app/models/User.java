@@ -175,13 +175,13 @@ public class User extends Model {
     public static User findById(Long id){
         return find.byId(id);
     }
-    public static User create(String email, String password){
+    public static User create(String email, String password, Date birthday,String gender){
         if(User.find.where().eq("email", email).findUnique() == null) {
             User newUser = new User();
             newUser.email = email;
             newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
-            newUser.gender = "male";
-            newUser.birthday = new Date();
+            newUser.birthday = birthday;
+            newUser.gender = gender;
             newUser.save();
             return newUser;
         }
