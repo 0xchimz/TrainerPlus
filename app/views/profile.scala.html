@@ -1,7 +1,7 @@
-
+@(user :User)
 @base_with_nav("profile")(content)
 
 @content = {
     @profile_select_shape()
-    @profile_information()
+    @profile_information(user)
 }

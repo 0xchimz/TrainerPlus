@@ -4,7 +4,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.profile;
 import play.data.*;
-import models.*;
+import models.User;
 
 /**
  * Created by Frank on 11/14/2015 AD.
@@ -12,19 +12,23 @@ import models.*;
 public class Profile extends Controller {
 
     public static Result index() {
-        return ok(profile.render());
+        User thisUser = User.findById(Long.parseLong(session("userId")));
+        return ok(profile.render(thisUser));
     }
 
     public static Result editProfile(){
       DynamicForm dynamicForm = new DynamicForm().bindFromRequest();
       User thisUser = User.findById(Long.parseLong(session("userId")));
-      thisUser.setHeight(Double.parseDouble(dynamicForm.get("input_height")));
-      thisUser.setWeight(Double.parseDouble(dynamicForm.get("input_weight")));
-      thisUser.setWaistline(Double.parseDouble(dynamicForm.get("input_waistline")));
-      thisUser.setHip(Double.parseDouble(dynamicForm.get("input_hip")));
-      thisUser.setIsGain(Boolean.parseBoolean(dynamicForm.get("input_goal")));
-      thisUser.update();
-      return ok(profile.render());
+      double height = Double.parseDouble(dynamicForm.get("inputheight"));
+      System.out.println(height);
+      System.out.print(thisUser.get);
+      // thisUser.setHeight(height);
+      // thisUser.setWeight(Double.parseDouble(dynamicForm.get("inputweight")));
+      // thisUser.setWaistline(Double.parseDouble(dynamicForm.get("inputwaistline")));
+      // thisUser.setHip(Double.parseDouble(dynamicForm.get("inputhip")));
+      // thisUser.setIsGain(Boolean.parseBoolean(dynamicForm.get("inputgoal")));
+      // thisUser.update();
+      return ok(profile.render(thisUser));
 
     }
 }
