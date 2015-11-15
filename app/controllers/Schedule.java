@@ -57,7 +57,16 @@ public class Schedule extends Controller {
         List<Day> workoutScheduleList = exSchRule.getResult();
         List<Cardio> cardiotScheduleList = caRule.getResult();
 
-        return ok(workout_schedule.render(workoutScheduleList, cardiotScheduleList, cardioIsIntense, workoutIsIntense));
+        exSchRule.setInput(userWorkoutDays, !workoutIsIntense, gender);
+        caRule.setInput(age, !cardioIsIntense);
+        rulesEngine = aNewRulesEngine().withSilentMode(true).build();
+        rulesEngine.registerRule(exSchRule);
+        rulesEngine.registerRule(caRule);
+        rulesEngine.fireRules();
+        List<Day> workoutScheduleIntenseList = exSchRule.getResult();
+        List<Cardio> cardiotScheduleIntenseList = caRule.getResult();
+
+        return ok(workout_schedule.render(workoutScheduleList, cardiotScheduleList, cardioIsIntense,workoutScheduleIntenseList, cardiotScheduleIntenseList, thisUser.isGain()));
     }
 
     public static Result nutritionSchedule() {
@@ -94,8 +103,10 @@ public class Schedule extends Controller {
         rawMaterialList.addAll(vetList);
         rawMaterialList.addAll(drinkList);
 
+//        tdeeRule.
         String tdee = tdeeRule.getResult();
-        calEatingRule.setInput(Double.parseDouble(tdee), isGain);
+        System.out.println(tdee);
+        calEatingRule.setInput(Double.parseDouble("100"), isGain);
 
         rulesEngine.registerRule(calEatingRule);
         rulesEngine.fireRules();

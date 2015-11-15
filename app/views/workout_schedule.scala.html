@@ -1,4 +1,4 @@
-@(days: List[rules.exercise.Day])(cardioList: List[rules.cardio.Cardio])(cardioIsIntense :Boolean)(workoutIsIntense :Boolean)
+@(days: List[rules.exercise.Day])(cardioList: List[rules.cardio.Cardio])(cardioIsIntense: Boolean)(days2 :List[rules.exercise.Day])(cardioList2 : List[rules.cardio.Cardio])(isGain: Boolean)
 @import rules.exercise.Day;
 @import rules.exercise.Exercise;
 @import rules.cardio.Cardio;
@@ -12,7 +12,7 @@
 <div class="text-center">
     <div class="center-block" style="background: #c0392b; color: white;; padding: 100px;">
         <h1>WORKOUT PROGRAMS</h1>
-        <button id="i_want" type="button" class="btn btn-warning-outline pull-right active" data-toggle="button" aria-pressed="false" autocomplete="off">
+        <button id="i_want" type="button" class="btn btn-warning-outline pull-right" data-toggle="button" aria-pressed="false" autocomplete="off">
             I want cardio
         </button>
         </div>
@@ -34,28 +34,52 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Day</th>
-                        <th class="text-center">Workout</th>
-                        <th class="text-center">Sets</th>
+                        <th >Day</th>
+                        <th class="text-center" >Workout</th>
+                        <th class="text-center" >Sets</th>
                         <th class="text-center">Reps</th>
 
                      </tr>
                 </thead>
-                <tbody>
+                <tbody id="table_workout">
                     @days.zipWithIndex.map { case (day, index) =>
                         @day.getExercises().zipWithIndex.map{ case (exercise, index2) =>
                           <tr>
                             @if(index2 == 0){
-                                <th scope="row">@day.getDay()</th>
+                                <th scope="row" style="border-color: black;">@day.getDay()</th>
+                                <td style="border-color: black;">@exercise.getName()</td>
+                                <td style="border-color: black;">@exercise.getSets()</td>
+                                <td style="border-color: black;">@exercise.getReps()</td>
                             } else {
                               <th scope="row"></th>
+                                <td>@exercise.getName()</td>
+                                <td>@exercise.getSets()</td>
+                                <td>@exercise.getReps()</td>
                             }
-                            <td>@exercise.getName()</td>
-                            <td>@exercise.getSets()</td>
-                            <td>@exercise.getReps()</td>
+
                           </tr>
                         }
                     }
+                </tbody>
+
+                <tbody id="table_intense_workout" style="display: none;">
+                @days2.zipWithIndex.map { case (day, index) =>
+                    @day.getExercises().zipWithIndex.map{ case (exercise, index2) =>
+                    <tr>
+                        @if(index2 == 0){
+                            <th scope="row" style="border-color: black;">@day.getDay()</th>
+                            <td style="border-color: black;">@exercise.getName()</td>
+                            <td style="border-color: black;">@exercise.getSets()</td>
+                            <td style="border-color: black;">@exercise.getReps()</td>
+                        } else {
+                            <th scope="row"></th>
+                            <td>@exercise.getName()</td>
+                            <td>@exercise.getSets()</td>
+                            <td>@exercise.getReps()</td>
+                        }
+                    </tr>
+                    }
+                }
                 </tbody>
             </table>
         </div>
@@ -78,7 +102,8 @@
                           </tr>
                       </thead>
                       <tbody class ="verticleTable2">
-                          <tr><td>@cardioList.get(0).getName()</td>
+                          <tr id="table_cardio">
+                              <td>@cardioList.get(0).getName()</td>
                           <td>@cardioList.get(0).getFullName()</td>
                           <td>@cardioList.get(0).getType()</td>
                           <td>@cardioList.get(0).getHR()</td>
@@ -88,8 +113,8 @@
                           <td>@cardioList.get(0).getAverage()</td>
                           <td>@cardioList.get(0).getDescription()</td>
                           </tr>
-                  @if(cardioIsIntense == true){
-                          <tr>
+
+                          <tr id="table_intense_cardio" style="display: none;">
                               <td>@cardioList.get(1).getName()</td>
                           <td>@cardioList.get(1).getFullName()</td>
                           <td>@cardioList.get(1).getType()</td>
@@ -98,15 +123,12 @@
                           <td>@cardioList.get(1).getBenefit()</td>
                           <td>@cardioList.get(1).getFrequency()</td>
                           <td>@cardioList.get(1).getAverage()</td>
-                          <td>@cardioList.get(1).getDescription()</td></tr>
+                          <td>@cardioList.get(1).getDescription()</td>
+                          </tr>
                       </tbody>
                   </table>
                 </div>
-            } else{
-                </tbody>
-                </table>
-                </div>
-            }
+
 
             </div>
         </div>
@@ -128,7 +150,47 @@
                 cardio--;
             }
 
-        })
+        });
+
+        var intense_workout = 0;
+        $('#workout_intense').click(function(){
+            if (intense_workout==0){
+                $("#table_workout").hide();
+                $("#table_intense_workout").show();
+                intense_workout++
+            }
+            else{
+                $("#table_workout").show();
+                $("#table_intense_workout").hide();
+                intense_workout--;
+            }
+
+        });
+
+        var intense_cardio = 0;
+        $('#cardio_intense').click(function(){
+            if (intense_cardio==0){
+                $("#table_cardio").show();
+                $("#table_intense_cardio").show();
+                intense_cardio++
+            }
+            else{
+                $("#table_cardio").show();
+                $("#table_intense_cardio").hide();
+                intense_cardio--;
+            }
+
+        });
+
+        if(!@isGain){
+            $("#i_want").addClass("active");
+            $("#cardio_tap").show();
+
+        } else{
+            cardio = 0;
+            $("#cardio_tap").hide();
+        }
+
 
     </script>
 }

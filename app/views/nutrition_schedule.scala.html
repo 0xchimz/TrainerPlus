@@ -56,10 +56,10 @@
             </table>
 
         </div>
-        <h1 type="center-block" style="background: #9b59b6; color: white;; padding: 100px;">Raw Material's Protein Table</h1>
+        <h1 type="center-block" style="background: #336E7B; color: white;; padding: 100px;">Raw Material's Protein Table</h1>
             <div class="container margin-top">
         
-                <table class="table table-striped">
+                <table id="raw_table" class="table table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">Type</th>
@@ -88,4 +88,9 @@
     </div>
     <div class="col-md-2 col-lg-3">
     </div>
+    <script>
+            $(document).ready(function(){
+                $('#raw_table').DataTable();
+            });
+    </script>
 }
