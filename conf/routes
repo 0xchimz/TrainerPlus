@@ -14,6 +14,7 @@ GET        /workout_schedule    controllers.Schedule.workoutSchedule()
 GET        /nutrition_schedule  controllers.Schedule.nutritionSchedule()
 GET        /mockdb              controllers.Home.mock()
 GET        /register            controllers.Register.register()
+POST       /register            controllers.Register.submit()
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file        controllers.Assets.at(path="/public", file)
