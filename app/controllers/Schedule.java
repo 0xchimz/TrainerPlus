@@ -26,6 +26,9 @@ public class Schedule extends Controller {
     private static NutritionRule nuRule = new NutritionRule();
     private static CardioRule caRule = new CardioRule();
 
+    private static TDEERule tdeeRule = new TDEERule();
+    private static CalEatingRule calEatingRule = new CalEatingRule();
+
     private static MeatRule meatRule = new MeatRule();
     private static VegetableRule vegetableRule = new VegetableRule();
     private static DrinkRule drinkRule = new DrinkRule();
@@ -41,14 +44,19 @@ public class Schedule extends Controller {
         boolean workoutIsIntense = thisUser.isWorkoutIsIntense();
         boolean cardioIsIntense = thisUser.isCardioIsIntense();
         String gender = thisUser.getGender();
-        exSchRule.setInput(userWorkoutDays, workoutIsIntense, gender );
-        caRule.setInput(age, cardioIsIntense );
+        if(userWorkoutDays == 0) {
+            flash("error", "Please setting your plan.");
+            return redirect(routes.Profile.index());
+        }
+        exSchRule.setInput(userWorkoutDays, workoutIsIntense, gender);
+        caRule.setInput(age, cardioIsIntense);
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(exSchRule);
         rulesEngine.registerRule(caRule);
         rulesEngine.fireRules();
         List<Day> workoutScheduleList = exSchRule.getResult();
         List<Cardio> cardiotScheduleList = caRule.getResult();
+
         return ok(workout_schedule.render(workoutScheduleList, cardiotScheduleList, cardioIsIntense));
     }
 
@@ -56,9 +64,16 @@ public class Schedule extends Controller {
         User thisUser = User.findById(Long.parseLong(session("userId")));
         double weight = thisUser.getWeight();
         boolean isGain = thisUser.isGain();
+        if(weight == 0) {
+            flash("error", "Please setting your plan.");
+            return redirect(routes.Profile.index());
+        }
         nuRule.setInput(weight,isGain);
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
+
+        tdeeRule.setInput(weight,thisUser.getHeight(),thisUser.getGender(),20,1.2);
+        rulesEngine.registerRule(tdeeRule);
 
         meatRule.setInput(true);
         vegetableRule.setInput(true);
@@ -79,7 +94,15 @@ public class Schedule extends Controller {
         rawMaterialList.addAll(vetList);
         rawMaterialList.addAll(drinkList);
 
-        return ok(nutrition_schedule.render(nuList,rawMaterialList));
+        String tdee = tdeeRule.getResult();
+        calEatingRule.setInput(Double.parseDouble(tdee), isGain);
+
+        rulesEngine.registerRule(calEatingRule);
+        rulesEngine.fireRules();
+
+        String eatingCal = calEatingRule.getResult();
+
+        return ok(nutrition_schedule.render(nuList,rawMaterialList, tdee, eatingCal));
     }
 
 }

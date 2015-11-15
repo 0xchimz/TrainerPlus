@@ -47,12 +47,12 @@ public class User extends Model {
     private String gender;
 
     @Column(nullable = true)
-    private boolean isGain;
+    private boolean isGain = false;
 
     @Column(nullable = true)
     private int userWorkoutDays;
-    private boolean workoutIsIntense;
-    private boolean cardioIsIntense;
+    private boolean workoutIsIntense = false;
+    private boolean cardioIsIntense = false;
 
     public double getHip() {
         return hip;
