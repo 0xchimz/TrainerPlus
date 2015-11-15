@@ -6,5 +6,8 @@ package rules.nutrition.rawmaterial;
 public interface RawMaterial {
     public String getType();
     public String getClassification();
+    public String getName();
+    public String getAmount();
+    public String getProtein();
 
 }
