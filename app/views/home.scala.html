@@ -1,48 +1,55 @@
-@base_with_nav("home")(content)
+@base_with_nav("Trainer+")(content)
 
 @content = {
 <img data-src="holder.js/100px250?fg=ffffff&bg=39DBAC&text=Trainer +" >
-
-<div class="container margin-top">
-    <div class="row">
-        <div class="col-md-1 col-lg-1">
-        </div>
-        <div class="col-xs-12 col-md-5 col-lg-5">
-            <div class="card card-block card-success">
-                @*<img class="card-img-top" data-src="holder.js/100px200/" >*@
-                <div class="card-block" style="color: white">
-                    <h4 class="card-title">Obesity: No Risk</h4>
-                    @*<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>*@
-                    @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
+    @if(session.get("userId") != null) {
+    <div class="container margin-top">
+        <div class="row">
+            <div class="col-md-1 col-lg-1">
+            </div>
+            <div class="col-xs-12 col-md-5 col-lg-5">
+                <div class="card card-block card-success">
+                    @*<img class="card-img-top" data-src="holder.js/100px200/" >*@
+                    <div class="card-block" style="color: white">
+                        <h4 class="card-title">Obesity: No Risk</h4>
+                        @*<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>*@
+                        @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-md-5 col-lg-5">
-            <div class="card card-block card-success">
-                @*<img class="card-img-top" data-src="holder.js/100px200/" >*@
-                <div class="card-block" style="color: white">
-                    <h4 class="card-title">Sleep: Good</h4>
-                    @*<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>*@
-                    @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
+            <div class="col-xs-12 col-md-5 col-lg-5">
+                <div class="card card-block card-success">
+                    @*<img class="card-img-top" data-src="holder.js/100px200/" >*@
+                    <div class="card-block" style="color: white">
+                        <h4 class="card-title">Sleep: Good</h4>
+                        @*<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>*@
+                        @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
+                    </div>
                 </div>
             </div>
-        </div>
+        } else{
+        <img src="assets/images/home.PNG" style="width: 100%" >
+    }
         <div class="col-md-1 col-lg-1">
         </div>
     </div>
 </div>
+    @if(session.get("userId") == null) {
+        <div class="bg-info paging-top-lg paging-bottom-lg text-center">
+            <div class="row">
+                <div class="col-md-4 col-lg-4"></div>
+                <div class="col-xs-12 col-md-4 col-lg-4">
+                    <p>We are waiting for you.</p>
+                    <div class="container">
+                        <a class="btn btn-secondary btn-block btn-lg" href="@routes.Register.register()" style="border-color: white ; color: white ; background: transparent">
+                            Sign Up</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4"></div>
 
-<div class="bg-info paging-top-lg paging-bottom-lg text-center margin-top">
-    <div class="row">
-        <div class="col-md-4 col-lg-4"></div>
-        <div class="col-xs-12 col-md-4 col-lg-4">
-            <p>We are waiting for you.</p>
-            <div class="container">
-                <a class="btn btn-secondary btn-block btn-lg" href="@routes.Register.register()" style="border-color: white;color: white;background: transparent">Sign Up</a>
             </div>
         </div>
-        <div class="col-md-4 col-lg-4"></div>
+    } else {
+    }
 
-    </div>
-</div>
 }
