@@ -45,8 +45,8 @@ public class CardioRule {
         if (isIntense == true) {
             this.init();
             result = new ArrayList<Cardio>();
-            result.add(new HIIT(this.maxHR,true));
             result.add(new LISS(this.maxHR,true));
+            result.add(new HIIT(this.maxHR,true));
         }
     }
 
