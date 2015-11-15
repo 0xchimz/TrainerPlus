@@ -13,21 +13,19 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Day</th>
-                <th>Protein</th>
-                <th>Fat</th>
-                <th>Carbohydrate</th>
+                <th>Nutrient</th>
+                <th>Amount per day</th>
+                <th>Energy per gram</th>
             </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row"></th>
                 @list.zipWithIndex.map { case (nu, index) =>
-                    <td>
-                      @nu.getAmount();
-                    </td>
+                <tr>
+                    <td>@nu.getName()</td>
+                    <td>@nu.getAmount()</td>
+                    <td>@nu.getEnergyPerGram</td>
+                </tr>
                 }
-              </tr>
             </tbody>
         </table>
 
