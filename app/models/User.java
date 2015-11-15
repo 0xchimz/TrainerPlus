@@ -159,7 +159,7 @@ public class User extends Model {
 
     public int getAge() {
         DateTime now = DateTime.now();
-        Period period = new Period(now, this.birthday);
+        Period period = new Period(this.birthday, now);
         int age = period.getYears();
         return age;
     }

@@ -64,7 +64,8 @@ public class Schedule extends Controller {
         User thisUser = User.findById(Long.parseLong(session("userId")));
         double weight = thisUser.getWeight();
         boolean isGain = thisUser.isGain();
-        if(weight == 0) {
+        double height = thisUser.getHeight();
+        if(weight == 0 && height == 0) {
             flash("error", "Please setting your plan.");
             return redirect(routes.Profile.index());
         }
@@ -72,7 +73,7 @@ public class Schedule extends Controller {
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
 
-        tdeeRule.setInput(weight,thisUser.getHeight(),thisUser.getGender(),thisUser.getAge(),1.2);
+        tdeeRule.setInput(weight,height,thisUser.getGender(),thisUser.getAge(),1.2);
         rulesEngine.registerRule(tdeeRule);
 
         meatRule.setInput(true);
