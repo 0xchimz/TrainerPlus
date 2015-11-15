@@ -27,9 +27,9 @@
                 <thead>
                     <tr>
                         <th>Day</th>
-                        <th>Workout</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
+                        <th class="text-center">Workout</th>
+                        <th class="text-center">Sets</th>
+                        <th class="text-center">Reps</th>
 
                      </tr>
                 </thead>
@@ -55,15 +55,22 @@
               @if(cardioIsIntense == true){
                 <div class = "col-sm-6">
               }else {
-
               }
-                  <table class="table table-striped">
-                      <thead>
+                  <table class="table table-striped"style="width:600px">
+                      <thead class ="verticleTable1">
                           <tr>
-                              <th>LISS</th>
+                              <th class="text-center" style="border-bottom: 0px">Name</th>
+                              <th class="text-center" style="border-bottom: 0px">Fullname</th>
+                              <th class="text-center" style="border-bottom: 0px">Type</th>
+                              <th class="text-center" style="border-bottom: 0px">Hearth rate</th>
+                              <th class="text-center" style="border-bottom: 0px">Duration</th>
+                              <th class="text-center" style="border-bottom: 0px">Benefits</th>
+                              <th class="text-center" style="border-bottom: 0px">Frequency</th>
+                              <th class="text-center" style="border-bottom: 0px">Average</th>
+                              <th class="text-center" style="border-bottom: 0px">Description</th>
                           </tr>
                       </thead>
-                      <tbody>
+                      <tbody class ="verticleTable2">
                           <tr><td>@cardioList.get(0).getName()</td></tr>
                           <tr><td>@cardioList.get(0).getFullName()</td></tr>
                           <tr><td>@cardioList.get(0).getType()</td></tr>
@@ -79,12 +86,20 @@
                 <div class="col-sm-6">
                   @if(cardioIsIntense == true){
                     <table class="table table-striped">
-                        <thead>
+                        <thead class ="verticleTable1">
                             <tr>
-                                <th>HIIT</th>
+                                <th class="text-center" style="border-bottom: 0px">Name</th>
+                                <th class="text-center" style="border-bottom: 0px">Fullname</th>
+                                <th class="text-center" style="border-bottom: 0px">Type</th>
+                                <th class="text-center" style="border-bottom: 0px">Hearth rate</th>
+                                <th class="text-center" style="border-bottom: 0px">Duration</th>
+                                <th class="text-center" style="border-bottom: 0px">Benefits</th>
+                                <th class="text-center" style="border-bottom: 0px">Frequency</th>
+                                <th class="text-center" style="border-bottom: 0px">Average</th>
+                                <th class="text-center" style="border-bottom: 0px">Description</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class ="verticleTable2">
                           <tr><td>@cardioList.get(1).getName()</td></tr>
                           <tr><td>@cardioList.get(1).getFullName()</td></tr>
                           <tr><td>@cardioList.get(1).getType()</td></tr>

@@ -51,3 +51,15 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+.verticleTable1 {
+    float: left;
+}
+
+.verticleTable1 th {
+    display: block;
+}
+
+.verticleTable2 {
+    float: right;
+}
