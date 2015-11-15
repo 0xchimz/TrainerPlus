@@ -44,14 +44,19 @@ public class Schedule extends Controller {
         boolean workoutIsIntense = thisUser.isWorkoutIsIntense();
         boolean cardioIsIntense = thisUser.isCardioIsIntense();
         String gender = thisUser.getGender();
-        exSchRule.setInput(userWorkoutDays, workoutIsIntense, gender );
-        caRule.setInput(age, cardioIsIntense );
+        if(userWorkoutDays == 0) {
+            flash("error", "Please setting your plan.");
+            return redirect(routes.Profile.index());
+        }
+        exSchRule.setInput(userWorkoutDays, workoutIsIntense, gender);
+        caRule.setInput(age, cardioIsIntense);
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(exSchRule);
         rulesEngine.registerRule(caRule);
         rulesEngine.fireRules();
         List<Day> workoutScheduleList = exSchRule.getResult();
         List<Cardio> cardiotScheduleList = caRule.getResult();
+
         return ok(workout_schedule.render(workoutScheduleList, cardiotScheduleList, cardioIsIntense));
     }
 
@@ -59,6 +64,10 @@ public class Schedule extends Controller {
         User thisUser = User.findById(Long.parseLong(session("userId")));
         double weight = thisUser.getWeight();
         boolean isGain = thisUser.isGain();
+        if(weight == 0) {
+            flash("error", "Please setting your plan.");
+            return redirect(routes.Profile.index());
+        }
         nuRule.setInput(weight,isGain);
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
