@@ -16,6 +16,7 @@ import rules.exercise.Day;
 import rules.nutrition.*;
 import rules.cardio.*;
 import rules.*;
+import models.*;
 
 /**
  * Created by Frank on 11/14/2015 AD.
@@ -34,11 +35,12 @@ public class Schedule extends Controller {
     }
 
     public static Result workoutSchedule() {
-        int userWorkoutDays = 3;
-        int age = 20;
-        boolean workoutIsIntense = true;
-        boolean cardioIsIntense = false;
-        String gender = "male";
+        User thisUser = User.findById(Long.parseLong(session("userId")));
+        int userWorkoutDays = thisUser.getUserWorkoutDays();
+        int age = thisUser.getAge();
+        boolean workoutIsIntense = thisUser.isWorkoutIsIntense();
+        boolean cardioIsIntense = thisUser.isCardioIsIntense();
+        String gender = thisUser.getGender();
         exSchRule.setInput(userWorkoutDays, workoutIsIntense, gender );
         caRule.setInput(age, cardioIsIntense );
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
@@ -51,8 +53,9 @@ public class Schedule extends Controller {
     }
 
     public static Result nutritionSchedule() {
-        double weight = 80;
-        boolean isGain = false;
+        User thisUser = User.findById(Long.parseLong(session("userId")));
+        double weight = thisUser.getWeight();
+        boolean isGain = thisUser.isGain();
         nuRule.setInput(weight,isGain);
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
