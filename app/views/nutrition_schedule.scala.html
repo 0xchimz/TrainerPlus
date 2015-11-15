@@ -32,21 +32,19 @@
             <table class="table table-striped margin-top">
                 <thead>
                     <tr>
-                        <th>Day</th>
-                        <th>Protein</th>
-                        <th>Fat</th>
-                        <th>Carbohydrate</th>
+                        <th>Nutrient</th>
+                        <th>Amount per day</th>
+                        <th>Energy per gram</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @nulist.zipWithIndex.map { case (nu, index) =>
                     <tr>
-                        <th scope="row"></th>
-                        @nulist.zipWithIndex.map { case (nu, index) =>
-                        <td>
-                            @nu.getAmount();
-                        </td>
-                        }
+                        <td>@nu.getName()</td>
+                        <td>@nu.getAmount()</td>
+                        <td>@nu.getEnergyPerGram()</td>
                     </tr>
+                    }
                 </tbody>
             </table>
 

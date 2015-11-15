@@ -180,6 +180,7 @@ public class User extends Model {
             User newUser = new User();
             newUser.email = email;
             newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
+            newUser.gender ="male";
             newUser.save();
             return newUser;
         }
