@@ -22,16 +22,15 @@ public class User extends Model {
     @Constraints.Required
     private String password;
 
-
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
 
     public static User findByUsername(String username){
         return find.setMaxRows(1).where().eq("username", username).findUnique();
     }
-    public static User create(String username, String password, String fname,String lname, int type){
-        if(User.find.where().eq("username", username).findUnique() == null) {
+    public static User create(String email, String password){
+        if(User.find.where().eq("username", email).findUnique() == null) {
             User newUser = new User();
-            newUser.username = username;
+            newUser.username = email;
             newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
             newUser.save();
             return newUser;
@@ -40,5 +39,8 @@ public class User extends Model {
     }
     public String getPassword() {
         return password;
+    }
+    public Long getId() {
+        return id;
     }
 }
