@@ -13,12 +13,12 @@ import views.html.*;
  */
 public class Authentication extends Controller {
 
-    public static Result index() {
+    public static Result login() {
         return ok(login.render(""));
     }
 
     public static Result authenticate() {
-        if(!session("userId").isEmpty())
+        if(session("userId") != null)
             return redirect(routes.Home.index());
         DynamicForm dynamicForm = new DynamicForm().bindFromRequest();
         String email = dynamicForm.get("email");
@@ -33,6 +33,11 @@ public class Authentication extends Controller {
         session().clear();
         User currentUser = User.findByUsername(email);
         session("userId", String.valueOf(currentUser.getId()));
+        return redirect(routes.Home.index());
+    }
+
+    public static Result logout(){
+        session().clear();
         return redirect(routes.Home.index());
     }
 

@@ -14,7 +14,7 @@ public class Home extends Controller {
         return ok(home.render());
     }
 
-    public static Result index() {
+    public static Result mock() {
         User.create("chincub@gmail.com","015335510");
         return ok(home.render());
     }

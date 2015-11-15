@@ -24,7 +24,11 @@
                     <a class="nav-link" href="#">Sign up</a>
                 </li>
                 <li class="nav-item pull-right">
-                    <a class="nav-link" href="@routes.Authentication.index()">Login</a>
+                    <a class="nav-link" href="@routes.Authentication.login()">Login</a>
+                </li>
+            } else {
+                <li class="nav-item pull-right">
+                    <a class="nav-link" href="@routes.Authentication.logout()">Logout</a>
                 </li>
             }
         </ul>
