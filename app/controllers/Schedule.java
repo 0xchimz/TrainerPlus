@@ -3,6 +3,10 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 import java.util.*;
+
+import rules.nutrition.rawmaterial.RawMaterial;
+import rules.nutrition.rawmaterial.meat.MeatGenerator;
+import rules.nutrition.rawmaterial.vegetable.VegetableGenerator;
 import views.html.nutrition_schedule;
 import views.html.select_schedule;
 import views.html.workout_schedule;
@@ -20,6 +24,11 @@ public class Schedule extends Controller {
     private static ExerciseScheduleRule exSchRule = new ExerciseScheduleRule();
     private static NutritionRule nuRule = new NutritionRule();
     private static CardioRule caRule = new CardioRule();
+
+    private static MeatRule meatRule = new MeatRule();
+    private static VegetableRule vegetableRule = new VegetableRule();
+    private static DrinkRule drinkRule = new DrinkRule();
+
     public static Result index() {
         return ok(select_schedule.render());
     }
@@ -47,10 +56,27 @@ public class Schedule extends Controller {
         nuRule.setInput(weight,isGain);
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
+
+        meatRule.setInput(true);
+        vegetableRule.setInput(true);
+        drinkRule.setInput(true);
+        rulesEngine.registerRule(meatRule);
+        rulesEngine.registerRule(vegetableRule);
+        rulesEngine.registerRule(drinkRule);
+
         rulesEngine.fireRules();
+
         List<Nutrition> nuList = nuRule.getResult();
 
-        return ok(nutrition_schedule.render(nuList));
+        List<RawMaterial> meatList = meatRule.getResult().getAll();
+        List<RawMaterial> vetList = vegetableRule.getResult().getAll();
+        List<RawMaterial> drinkList = drinkRule.getResult().getAll();
+
+        List<RawMaterial> rawMaterialList = new ArrayList<RawMaterial>(meatList);
+        rawMaterialList.addAll(vetList);
+        rawMaterialList.addAll(drinkList);
+
+        return ok(nutrition_schedule.render(nuList,rawMaterialList));
     }
 
 }

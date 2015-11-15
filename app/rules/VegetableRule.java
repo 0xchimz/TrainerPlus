@@ -26,7 +26,7 @@ public class VegetableRule {
         result = new VegetableGenerator();
     }
 
-    public void setInput(boolean isMeat) {
+    public void setInput(boolean isVegetable) {
         this.isVegetable = isVegetable;
     }
     public VegetableGenerator getResult() {
