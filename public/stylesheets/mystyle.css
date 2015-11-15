@@ -52,18 +52,9 @@
     margin-left: auto;
 }
 
-/*.verticleTable1 {*/
-    /*float: left;*/
-/*}*/
 
-/*.verticleTable1 th {*/
-    /*display: block;*/
-/*}*/
-
-/*.verticleTable2 {*/
-    /*float: right;*/
-/*}*/
-
-/*.verticleTable2 th {*/
-    /*display: block;*/
-/*}*/
+.navbar-nav .nav-me {
+    display: block;
+    padding-top: .425rem;
+    padding-bottom: .425rem;
+}

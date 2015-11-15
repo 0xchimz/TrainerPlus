@@ -1,4 +1,4 @@
-@(nulist :List[rules.nutrition.Nutrition])(rawMaterialList :List[rules.nutrition.rawmaterial.RawMaterial])
+@(nulist :List[rules.nutrition.Nutrition])(rawMaterialList :List[rules.nutrition.rawmaterial.RawMaterial])(tdee : String)(eatingCal : String)
 
 @import rules.nutrition.Nutrition;
 @import rules.nutrition.Fat;
@@ -10,6 +10,12 @@
     <div class="text-center">
         <h1 type="center-block" style="background: #9b59b6; color: white;; padding: 100px;">NUTRITION TABLE</h1>
         <div class="container margin-top">
+
+            <div class="Energy">
+                <p class="lead">Your TDEE is @tdee kcal, you need to eat around</p>
+                <h1 class="display-3">@eatingCal kcal</h1>
+            </div>
+
             <div class="row container">
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-info-outline">
@@ -29,12 +35,13 @@
                     </label>
                 </div>
             </div>
+
             <table class="table table-striped margin-top">
                 <thead>
                     <tr>
-                        <th>Nutrient</th>
-                        <th>Amount per day</th>
-                        <th>Energy per gram</th>
+                        <th class="text-center">Nutrient</th>
+                        <th class="text-center">Amount per day</th>
+                        <th class="text-center">Energy per gram</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,11 +62,11 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Type</th>
-                            <th>Classification</th>
-                            <th>Material</th>
-                            <th>Amount</th>
-                            <th>Protein provided</th>
+                            <th class="text-center">Type</th>
+                            <th class="text-center">Classification</th>
+                            <th class="text-center">Material</th>
+                            <th class="text-center">Amount</th>
+                            <th class="text-center">Protein provided</th>
                         </tr>
                     </thead>
                     <tbody>

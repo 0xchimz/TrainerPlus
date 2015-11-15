@@ -2,6 +2,21 @@
 @base_with_nav("profile")(content)
 
 @content = {
+    @if(flash.contains("error")) {
+        <div class="container margin-top">
+            <div class="col-md-2 col-lg-3">
+            </div>
+            <div class="col-xs-12 col-md-8 col-lg-6">
+                <div class="alert alert-danger flash" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    @flash.get("error")
+                </div>
+            </div>
+            <div class="col-md-2 col-lg-3">
+            </div>
+        </div>
+    }
     @profile_select_shape()
     @profile_information(user)
 }

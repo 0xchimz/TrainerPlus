@@ -47,12 +47,12 @@ public class User extends Model {
     private String gender;
 
     @Column(nullable = true)
-    private boolean isGain;
+    private boolean isGain = false;
 
     @Column(nullable = true)
     private int userWorkoutDays;
-    private boolean workoutIsIntense;
-    private boolean cardioIsIntense;
+    private boolean workoutIsIntense = false;
+    private boolean cardioIsIntense = false;
 
     public double getHip() {
         return hip;
@@ -161,7 +161,7 @@ public class User extends Model {
     public int getAge() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(this.birthday);
-        LocalDate birthdate = new LocalDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
+        LocalDate birthdate = new LocalDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DATE));
         LocalDate now = new LocalDate();
         int age = Years.yearsBetween(birthdate, now).getYears();
         return age;

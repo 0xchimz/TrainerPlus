@@ -11,32 +11,34 @@ public class CalEatingRule {
      * The user input which represents the data that the rule will operate on.
      */
     private double TDEE;
-    private String goal;
+    private boolean isGain;
     private String result;
 
     @Condition
     public boolean checkInput() {
         //The rule should be applied only if the user's response is yes (duke friend)
-        return (goal.equalsIgnoreCase("gain") | goal.equalsIgnoreCase("lose")) & TDEE > 0;
+        return TDEE > 0;
     }
 
     @Action(order = 1)
     public void checkGain() throws Exception {
-        if (goal.equalsIgnoreCase("gain")){
-        	result = String.format("You need to eat more than %d kcal\n",TDEE);
+        if (isGain == true){
+            double kcal = TDEE + (0.1*TDEE);
+        	result = String.format("%.0f",kcal);
         }
     }
     
     @Action(order = 2)
     public void checkLose() throws Exception {
-        if (goal.equalsIgnoreCase("lose")){
-        	result = String.format("You need to eat less than %d kcal\n",TDEE);
+        if (isGain == false){
+            double kcal = TDEE - (0.1*TDEE);
+            result = String.format("%.0f",kcal);
         }
     }
 
-    public void setInput(double TDEE, String goal) {
+    public void setInput(double TDEE, boolean isGain) {
         this.TDEE = TDEE;
-        this.goal = goal;
+        this.isGain = isGain;
     }
     public String getResult() {
         return result;

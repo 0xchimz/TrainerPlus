@@ -9,19 +9,19 @@
           <form class="form-row" action="@routes.Profile.editProfile()" method="POST">
             <div class="form-group">
               <label for="input_height" class="">Height</label>
-              <input type="text" class="form-control" name="inputheight" placeholder="ex. 145 cm" value="">
+              <input type="text" class="form-control" name="inputheight" id="input_height" placeholder="ex. 145 cm" value="@user.getHeight()">
             </div>
             <div class="form-group">
               <label for="input_weight">Weight</label>
-              <input type="text" class="form-control" name="inputweight" placeholder="ex. 50 kg">
+              <input type="text" class="form-control" name="inputweight" placeholder="ex. 50 kg" value="@user.getWeight()">
             </div>
             <div class="form-group">
               <label for="input_waistline">Waistline</label>
-              <input type="text" class="form-control" name="inputwaistline" placeholder="ex. 30 inches">
+              <input type="text" class="form-control" name="inputwaistline" placeholder="ex. 30 inches" value=@user.getWaistline()>
             </div>
             <div class="form-group">
               <label for="input_hip">Hip</label>
-              <input type="text" class="form-control" name="inputhip" placeholder="ex. 33 inches">
+              <input type="text" class="form-control" name="inputhip" placeholder="ex. 33 inches" value="@user.getHip()">
             </div>
             <input type="hidden" class="form-control" id="input_goal" name="inputgoal">
             <div class="row">
