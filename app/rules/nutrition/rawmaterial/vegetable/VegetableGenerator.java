@@ -18,6 +18,7 @@ public class VegetableGenerator {
         addNut();
         addEgg();
         addSoy();
+
         this.all.addAll(nut);
         this.all.addAll(egg);
         this.all.addAll(soy);
