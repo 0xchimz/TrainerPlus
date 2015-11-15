@@ -26,6 +26,9 @@ public class Schedule extends Controller {
     private static NutritionRule nuRule = new NutritionRule();
     private static CardioRule caRule = new CardioRule();
 
+    private static TDEERule tdeeRule = new TDEERule();
+    private static CalEatingRule calEatingRule = new CalEatingRule();
+
     private static MeatRule meatRule = new MeatRule();
     private static VegetableRule vegetableRule = new VegetableRule();
     private static DrinkRule drinkRule = new DrinkRule();
@@ -60,6 +63,9 @@ public class Schedule extends Controller {
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
 
+        tdeeRule.setInput(weight,thisUser.getHeight(),thisUser.getGender(),20,1.2);
+        rulesEngine.registerRule(tdeeRule);
+
         meatRule.setInput(true);
         vegetableRule.setInput(true);
         drinkRule.setInput(true);
@@ -79,7 +85,15 @@ public class Schedule extends Controller {
         rawMaterialList.addAll(vetList);
         rawMaterialList.addAll(drinkList);
 
-        return ok(nutrition_schedule.render(nuList,rawMaterialList));
+        String tdee = tdeeRule.getResult();
+        calEatingRule.setInput(Double.parseDouble(tdee), isGain);
+
+        rulesEngine.registerRule(calEatingRule);
+        rulesEngine.fireRules();
+
+        String eatingCal = calEatingRule.getResult();
+
+        return ok(nutrition_schedule.render(nuList,rawMaterialList, tdee, eatingCal));
     }
 
 }

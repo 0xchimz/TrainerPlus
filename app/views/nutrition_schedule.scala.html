@@ -1,4 +1,4 @@
-@(nulist :List[rules.nutrition.Nutrition])(rawMaterialList :List[rules.nutrition.rawmaterial.RawMaterial])
+@(nulist :List[rules.nutrition.Nutrition])(rawMaterialList :List[rules.nutrition.rawmaterial.RawMaterial])(tdee : String)(eatingCal : String)
 
 @import rules.nutrition.Nutrition;
 @import rules.nutrition.Fat;
@@ -12,8 +12,8 @@
         <div class="container margin-top">
 
             <div class="Energy">
-                <span>Your TDEE is 2500 kcal, you need to eat around</span>
-                <h1>2800 kcal</h1>
+                <span>Your TDEE is @tdee kcal, you need to eat around</span>
+                <h1>@eatingCal kcal</h1>
             </div>
 
             <div class="row container">
