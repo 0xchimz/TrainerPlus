@@ -36,10 +36,13 @@
     <div class="row">
         <div class="col-md-4 col-lg-4"></div>
         <div class="col-xs-12 col-md-4 col-lg-4">
+        @if(session.get("userId") == null) {
             <p>We are waiting for you.</p>
             <div class="container">
-                <a class="btn btn-secondary btn-block btn-lg" href="@routes.Register.register()" style="border-color: white;color: white;background: transparent">Sign Up</a>
+                <a class="btn btn-secondary btn-block btn-lg" href="@routes.Register.register()" style="border-color: white ; color: white ; background: transparent">
+                    Sign Up</a>
             </div>
+        }
         </div>
         <div class="col-md-4 col-lg-4"></div>
 
