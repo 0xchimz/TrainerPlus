@@ -5,7 +5,9 @@
     <div class="container ">
         <ul class="nav navbar-nav">
             <li class="nav-item">
-                <img src="http://www.mx7.com/i/838/2JoHVd.png" style="height: 40px;">
+                <a href="@routes.Home.index()">
+                    <img src="http://www.mx7.com/i/838/2JoHVd.png" style="height: 40px;">
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="@routes.Home.index()">Home</a>
@@ -25,7 +27,7 @@
                 </li>
             } else {
                 <li class="nav-item pull-right">
-                    <a class="nav-link" href="#">Sign up</a>
+                    <a class="nav-link" href="@routes.Register.register()">Sign up</a>
                 </li>
                 <li class="nav-item pull-right">
                     <a class="nav-link" href="@routes.Authentication.login()">Login</a>
