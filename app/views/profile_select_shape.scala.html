@@ -9,13 +9,13 @@
                     <h3 class="card-title text-center">Goal</h3>
                     <div class="row">
                     <form class="form-row">
-                        <div class="card text-center btn btn-secondary col-xs-6" onclick="changeColor(this,0)" name="loseWeight">
+                        <div class="card text-center btn btn-secondary col-xs-6" onclick="changeColor(this,0)" id="loseWeight">
                             <img class="card-img-top margin-top" src="/assets/images/running.png" style="height:100px;">
                             <div class="card-block">
                                 <h4 class="card-title">Lose Weight</h4>
                             </div>
                         </div>
-                        <div class="card text-center btn btn-secondary col-xs-6" onclick="changeColor(this,1)" name="gainWeight">
+                        <div class="card text-center btn btn-secondary col-xs-6" onclick="changeColor(this,1)" id="gainWeight">
                             <img class="card-img-top margin-top" src="/assets/images/dumbbells.png" style="height:100px;">
                             <div class="card-block">
                                 <h4 class="card-title">Gain Weight</h4>
@@ -51,12 +51,16 @@
         $(obj).css("color", "white");
         $(obj).find('img').addClass("inverse");
         temp = obj;
+        console.log("click : " + $("#input_goal").val());
     }
     $( document ).ready(function() {
-      if($("#input_goal").val()== true){
+      console.log($("#input_goal").val())
+      if($("#input_goal").val()=== true){
         $("#gainWeight").click();
+        console.log($("#input_goal").val() + "true")
       }else{
         $("#loseWeight").click();
+        console.log($("#input_goal").val() + "false")
       }
 
     });

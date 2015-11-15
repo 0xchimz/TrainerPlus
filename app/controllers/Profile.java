@@ -23,7 +23,13 @@ public class Profile extends Controller {
       thisUser.setWeight(Double.parseDouble(dynamicForm.get("inputweight")));
       thisUser.setWaistline(Double.parseDouble(dynamicForm.get("inputwaistline")));
       thisUser.setHip(Double.parseDouble(dynamicForm.get("inputhip")));
-      thisUser.setIsGain(Boolean.parseBoolean(dynamicForm.get("inputgoal")));
+      boolean isGain = true;
+      if(dynamicForm.get("inputgoal").equalsIgnoreCase("1")){
+        isGain = true;
+      }else{
+        isGain = false;
+      }
+      thisUser.setIsGain(isGain);
       thisUser.update();
       return ok(profile.render(thisUser));
 
