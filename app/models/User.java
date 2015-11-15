@@ -1,11 +1,14 @@
 package models;
 
+import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import org.joda.time.*;
 import org.mindrot.jbcrypt.BCrypt;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.*;
+import play.data.format.*;
 
 @Entity
 @Table(name = "user_account")
@@ -21,37 +24,32 @@ public class User extends Model {
     @Required
     private String password;
 
-    @NotNull
-    @Required
+    @Column(nullable = false)
     private double height;
 
-    @NotNull
-    @Required
+    @Column(nullable = false)
     private double weight;
 
-    @NotNull
-    @Required
+    @Column(nullable = false)
     private double waistline;
 
-    @NotNull
-    @Required
+    @Column(nullable = false)
     private double hip;
 
     @NotNull
     @Required
-    private int age;
+    @Formats.DateTime(pattern="dd/MM/yyyy")
+    private Date birthday = new Date();
 
     @NotNull
     @Required
     @Column(length = 10)
     private String gender;
 
-    @NotNull
-    @Required
+    @Column(nullable = false)
     private boolean isGain;
 
-    @NotNull
-    @Required
+    @Column(nullable = false)
     private int userWorkoutDays;
     private boolean workoutIsIntense;
     private boolean cardioIsIntense;
@@ -104,12 +102,12 @@ public class User extends Model {
         this.waistline = waistline;
     }
 
-    public int getAge() {
-        return age;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getGender() {
@@ -158,6 +156,15 @@ public class User extends Model {
 
     public static void setFind(Finder<Long, User> find) {
         User.find = find;
+    }
+
+    public int getAge() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(this.birthday);
+        LocalDate birthdate = new LocalDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
+        LocalDate now = new LocalDate();
+        int age = Years.yearsBetween(birthdate, now).getYears();
+        return age;
     }
 
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
