@@ -10,24 +10,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="@routes.Home.index()">Home</a>
             </li>
-            @if(session.get("userId")) {
+            @if(session.get("userId") != null) {
                 <li class="nav-item">
                     <a class="nav-link" href="@routes.Schedule.index()">Schedule</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="@routes.Profile.index()">My Profile</a>
                 </li>
-            }
-            @if(!session.get("userId")) {
+                <li class="pull-right nav-item">
+                    Welcome, @Authentication.getCurrentUser(Long.parseLong(session.get("userId")))
+                </li>
+                <li class="nav-item pull-right">
+                    <a class="nav-link" href="@routes.Authentication.logout()">Logout</a>
+                </li>
+            } else {
                 <li class="nav-item pull-right">
                     <a class="nav-link" href="#">Sign up</a>
                 </li>
                 <li class="nav-item pull-right">
                     <a class="nav-link" href="@routes.Authentication.login()">Login</a>
-                </li>
-            } else {
-                <li class="nav-item pull-right">
-                    <a class="nav-link" href="@routes.Authentication.logout()">Logout</a>
                 </li>
             }
         </ul>
