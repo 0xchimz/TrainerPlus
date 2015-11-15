@@ -31,7 +31,7 @@ public class Authentication extends Controller {
         }
         Logger.info("["+email+"] login success.");
         session().clear();
-        User currentUser = User.findByUsername(email);
+        User currentUser = User.findByEmail(email);
         session("userId", String.valueOf(currentUser.getId()));
         return redirect(routes.Home.index());
     }
@@ -41,4 +41,8 @@ public class Authentication extends Controller {
         return redirect(routes.Home.index());
     }
 
+    public static User getCurrentUser(Long id){
+        User tmp = User.findById(id);
+        return tmp;
+    }
 }
