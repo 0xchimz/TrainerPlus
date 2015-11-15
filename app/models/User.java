@@ -11,7 +11,7 @@ import play.db.ebean.*;
 @Table(name = "user_account")
 public class User extends Model {
     @Id
-    public Long id;
+    public long id;
     @NotNull
     @Required
     @Column(unique=true)
@@ -23,28 +23,23 @@ public class User extends Model {
 
     @NotNull
     @Required
-    @Column(length = 10)
-    private Double height;
+    private double height;
 
     @NotNull
     @Required
-    @Column(length = 10)
-    private Double weight;
+    private double weight;
 
     @NotNull
     @Required
-    @Column(length = 10)
-    private Double waistline;
+    private double waistline;
 
     @NotNull
     @Required
-    @Column(length = 10)
-    private Double hip;
+    private double hip;
 
     @NotNull
     @Required
-    @Column(length = 5)
-    private Integer age;
+    private int age;
 
     @NotNull
     @Required
@@ -57,15 +52,15 @@ public class User extends Model {
 
     @NotNull
     @Required
-    private Integer userWorkoutDays;
+    private int userWorkoutDays;
     private boolean workoutIsIntense;
     private boolean cardioIsIntense;
 
-    public Double getHip() {
+    public double getHip() {
         return hip;
     }
 
-    public void setHip(Double hip) {
+    public void setHip(double hip) {
         this.hip = hip;
     }
 
@@ -85,35 +80,35 @@ public class User extends Model {
         this.password = password;
     }
 
-    public Double getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    public Double getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public Double getWaistline() {
+    public double getWaistline() {
         return waistline;
     }
 
-    public void setWaistline(Double waistline) {
+    public void setWaistline(double waistline) {
         this.waistline = waistline;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -133,11 +128,11 @@ public class User extends Model {
         this.isGain = isGain;
     }
 
-    public Integer getUserWorkoutDays() {
+    public int getUserWorkoutDays() {
         return userWorkoutDays;
     }
 
-    public void setUserWorkoutDays(Integer userWorkoutDays) {
+    public void setUserWorkoutDays(int userWorkoutDays) {
         this.userWorkoutDays = userWorkoutDays;
     }
 
@@ -183,7 +178,7 @@ public class User extends Model {
     public String getPassword() {
         return password;
     }
-    public Long getId() {
+    public long getId() {
         return id;
     }
 }
