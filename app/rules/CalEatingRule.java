@@ -23,14 +23,16 @@ public class CalEatingRule {
     @Action(order = 1)
     public void checkGain() throws Exception {
         if (goal.equalsIgnoreCase("gain")){
-        	result = String.format("You need to eat more than %d kcal\n",TDEE);
+            double kcal = TDEE + (0.1*TDEE);
+        	result = String.format("%.0f",kcal);
         }
     }
     
     @Action(order = 2)
     public void checkLose() throws Exception {
         if (goal.equalsIgnoreCase("lose")){
-        	result = String.format("You need to eat less than %d kcal\n",TDEE);
+            double kcal = TDEE - (0.1*TDEE);
+            result = String.format("%.0f",kcal);
         }
     }
 
