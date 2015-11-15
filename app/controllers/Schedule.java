@@ -57,22 +57,23 @@ public class Schedule extends Controller {
         List<Day> workoutScheduleList = exSchRule.getResult();
         List<Cardio> cardiotScheduleList = caRule.getResult();
 
-        return ok(workout_schedule.render(workoutScheduleList, cardiotScheduleList, cardioIsIntense));
+        return ok(workout_schedule.render(workoutScheduleList, cardiotScheduleList, cardioIsIntense, workoutIsIntense));
     }
 
     public static Result nutritionSchedule() {
         User thisUser = User.findById(Long.parseLong(session("userId")));
         double weight = thisUser.getWeight();
         boolean isGain = thisUser.isGain();
-        if(weight == 0) {
-            flash("error", "Please setting your plan.");
+        double height = thisUser.getHeight();
+        if(weight == 0 || height == 0) {
+            flash("error", "Please fill your information.");
             return redirect(routes.Profile.index());
         }
         nuRule.setInput(weight,isGain);
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
 
-        tdeeRule.setInput(weight,thisUser.getHeight(),thisUser.getGender(),thisUser.getAge(),1.2);
+        tdeeRule.setInput(weight,height,thisUser.getGender(),thisUser.getAge(),1.2);
         rulesEngine.registerRule(tdeeRule);
 
         meatRule.setInput(true);

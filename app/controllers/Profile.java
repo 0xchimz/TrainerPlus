@@ -12,8 +12,8 @@ import models.User;
 public class Profile extends Controller {
 
     public static Result index() {
-        User thisUser = User.findById(Long.parseLong(session("userId")));
-        return ok(profile.render(thisUser));
+      User thisUser = User.findById(Long.parseLong(session("userId")));
+      return ok(profile.render(thisUser));
     }
 
     public static Result editProfile(){
@@ -30,7 +30,7 @@ public class Profile extends Controller {
         isGain = false;
       }
       thisUser.setIsGain(isGain);
-        thisUser.setUserWorkoutDays(Integer.parseInt(dynamicForm.get("workoutDays")));
+      thisUser.setUserWorkoutDays(Integer.parseInt(dynamicForm.get("workoutDays")));
       thisUser.update();
       return ok(profile.render(thisUser));
 

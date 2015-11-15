@@ -1,4 +1,4 @@
-@(days: List[rules.exercise.Day])(cardioList: List[rules.cardio.Cardio])(cardioIsIntense :Boolean)
+@(days: List[rules.exercise.Day])(cardioList: List[rules.cardio.Cardio])(cardioIsIntense :Boolean)(workoutIsIntense :Boolean)
 @import rules.exercise.Day;
 @import rules.exercise.Exercise;
 @import rules.cardio.Cardio;
@@ -6,7 +6,7 @@
 @import rules.cardio.LISS;
 @import java.util;
 
-@base_with_nav("workout_schedule")(content)
+@base_with_nav("Trainer+ : Workout Schedule")(content)
 
 @content = {
 <div class="text-center">
