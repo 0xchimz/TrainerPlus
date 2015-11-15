@@ -19,6 +19,7 @@ public class Register extends Controller {
         String password = dynamicForm.get("password");
         String birthdate = dynamicForm.get("birthday");
         String gender = dynamicForm.get("gender");
+        System.out.println(dynamicForm);
         return ok();
     }
 }

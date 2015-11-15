@@ -21,13 +21,13 @@ public class Profile extends Controller {
       User thisUser = User.findById(Long.parseLong(session("userId")));
       double height = Double.parseDouble(dynamicForm.get("inputheight"));
       System.out.println(height);
-      System.out.print(thisUser.get);
+//      System.out.print(thisUser.get);
       // thisUser.setHeight(height);
-      // thisUser.setWeight(Double.parseDouble(dynamicForm.get("inputweight")));
-      // thisUser.setWaistline(Double.parseDouble(dynamicForm.get("inputwaistline")));
-      // thisUser.setHip(Double.parseDouble(dynamicForm.get("inputhip")));
-      // thisUser.setIsGain(Boolean.parseBoolean(dynamicForm.get("inputgoal")));
-      // thisUser.update();
+       thisUser.setWeight(Double.parseDouble(dynamicForm.get("inputweight")));
+       thisUser.setWaistline(Double.parseDouble(dynamicForm.get("inputwaistline")));
+       thisUser.setHip(Double.parseDouble(dynamicForm.get("inputhip")));
+       thisUser.setIsGain(Boolean.parseBoolean(dynamicForm.get("inputgoal")));
+       thisUser.update();
       return ok(profile.render(thisUser));
 
     }

@@ -8,7 +8,7 @@
       <div class="col-xs-12 col-md-8 col-lg-6">
         <div class="card card-block">
           <h3 class="card-title text-center">Register</h3>
-          <form class="form-row">
+          <form class="form-row" action="@routes.Register.submit()" method="post">
             <div class="form-group">
               <label for="input_email" class="">Email</label>
               <input type="email" class="form-control" name="email" placeholder="Email">
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
               <label for="birthday">Birthday</label>
-              <input type="date"  class="form-control" name="birthday" max="1979-12-31" min="2015-01-02">
+              <input type="date"  class="form-control" name="birthday">
             </div>
             <div class="form-group">
               <label for="input_gender">Gender</label>
