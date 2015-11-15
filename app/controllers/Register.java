@@ -15,8 +15,10 @@ public class Register extends Controller {
 
     public static Result submit() {
         DynamicForm dynamicForm = new DynamicForm().bindFromRequest();
-//        String email = dynamicForm.get("email");
-//        String password = dynamicForm.get("password");
-//        String
+        String email = dynamicForm.get("email");
+        String password = dynamicForm.get("password");
+        String birthdate = dynamicForm.get("birthday");
+        String gender = dynamicForm.get("gender");
+        return ok();
     }
 }

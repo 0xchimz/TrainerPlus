@@ -23,11 +23,11 @@
             </div>
             <div class="form-group">
               <label for="birthday">Birthday</label>
-              <input type="date"  class="form-control" name="birthday">
+              <input type="date"  class="form-control" name="birthday" max="1979-12-31" min="2015-01-02">
             </div>
             <div class="form-group">
               <label for="input_gender">Gender</label>
-              <select class="c-select">
+              <select class="c-select" name="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
@@ -44,4 +44,19 @@
   </div>
   <div class="col-md-2 col-lg-3">
   </div>
+  <script type="application/javascript">
+    var password = document.getElementById("password");
+    var confirmPassword = document.getElementById("confirmPassword");
+
+    function validatePassword(){
+      if(password.value != confirmPassword.value) {
+        confirmPassword.setCustomValidity("Password does not match!");
+      } else {
+        confirmPassword.setCustomValidity('');
+      }
+    }
+
+    password.onchange = validatePassword;
+    confirmPassword.onkeyup = validatePassword;
+  </script>
 }
