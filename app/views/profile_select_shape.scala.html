@@ -56,11 +56,9 @@
     $( document ).ready(function() {
       console.log($("#input_goal").val())
       if($("#input_goal").val()=== true){
-        $("#gainWeight").click();
-        console.log($("#input_goal").val() + "true")
+          changeColor($("#gainWeight"), 0);
       }else{
-        $("#loseWeight").click();
-        console.log($("#input_goal").val() + "false")
+          changeColor($("#loseWeight"), 1);
       }
 
     });
