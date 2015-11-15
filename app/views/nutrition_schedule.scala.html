@@ -6,34 +6,52 @@
 @base_with_nav("nutrition_schedule")(content)
 
 @content = {
-<div class="text-center">
-    <h1 type="center-block" style="background: #9b59b6; color: white;; padding: 100px;">NUTRITION TABLE</h1>
-    <div class="container margin-top">
+    <div class="text-center">
+        <h1 type="center-block" style="background: #9b59b6; color: white;; padding: 100px;">NUTRITION TABLE</h1>
+        <div class="container margin-top">
+            <div class="row container">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-info-outline">
+                        <input type="radio" name="activity_factor" id="lv1" autocomplete="off">Sedentary
+                    </label>
+                    <label class="btn btn-info-outline">
+                        <input type="radio" name="activity_factor" id="lv2" autocomplete="off">Lightly Active
+                    </label>
+                    <label class="btn btn-info-outline">
+                        <input type="radio" name="activity_factor" id="lv3" autocomplete="off">Moderately Active
+                    </label>
+                    <label class="btn btn-info-outline">
+                        <input type="radio" name="activity_factor" id="lv4" autocomplete="off">Very Active
+                    </label>
+                    <label class="btn btn-info-outline">
+                        <input type="radio" name="activity_factor" id="lv5" autocomplete="off">Extremely Active
+                    </label>
+                </div>
+            </div>
+            <table class="table table-striped margin-top">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Protein</th>
+                        <th>Fat</th>
+                        <th>Carbohydrate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"></th>
+                        @list.zipWithIndex.map { case (nu, index) =>
+                        <td>
+                            @nu.getAmount();
+                        </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Day</th>
-                <th>Protein</th>
-                <th>Fat</th>
-                <th>Carbohydrate</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row"></th>
-                @list.zipWithIndex.map { case (nu, index) =>
-                    <td>
-                      @nu.getAmount();
-                    </td>
-                }
-              </tr>
-            </tbody>
-        </table>
-
+        </div>
+        <a type="link" href="@routes.Schedule.index()" class="btn btn-success-outline btn-lg">Back</a>
     </div>
-    <a type="link" href="@routes.Schedule.index()" class="btn btn-success-outline btn-lg">Back</a>
-</div>
-<div class="col-md-2 col-lg-3">
-</div>
+    <div class="col-md-2 col-lg-3">
+    </div>
 }
