@@ -162,8 +162,11 @@ public class User extends Model {
 
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
 
-    public static User findByUsername(String username){
-        return find.setMaxRows(1).where().eq("username", username).findUnique();
+    public static User findByEmail(String email){
+        return find.setMaxRows(1).where().eq("email", email).findUnique();
+    }
+    public static User findById(Long id){
+        return find.byId(id);
     }
     public static User create(String email, String password){
         if(User.find.where().eq("email", email).findUnique() == null) {
