@@ -65,8 +65,8 @@ public class Schedule extends Controller {
         double weight = thisUser.getWeight();
         boolean isGain = thisUser.isGain();
         double height = thisUser.getHeight();
-        if(weight == 0 && height == 0) {
-            flash("error", "Please setting your plan.");
+        if(weight == 0 || height == 0) {
+            flash("error", "Please fill your information.");
             return redirect(routes.Profile.index());
         }
         nuRule.setInput(weight,isGain);
