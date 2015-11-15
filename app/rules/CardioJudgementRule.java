@@ -25,6 +25,9 @@ public class CardioJudgementRule {
         if (goal.equalsIgnoreCase("gain") && trainHeart == true){
         	result = true;
         }
+        else if (goal.equalsIgnoreCase("gain") && trainHeart == false) {
+            result = false;
+        }
     }
     
     @Action(order = 2)

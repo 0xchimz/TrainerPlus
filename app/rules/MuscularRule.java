@@ -22,14 +22,14 @@ public class MuscularRule {
 
     @Action(order = 1)
     public void disOrder() throws Exception {
-        if (!isIntense){
+        if (isIntense == false){
         	result = "You need to gain weight and workout";
         }
     }
     
     @Action(order = 2)
     public void notDisorder() throws Exception {
-        if (isIntense){
+        if (isIntense == true){
         	result = "You need to gain weight and weight training.";
         }
     }

@@ -21,14 +21,14 @@ public class WorkoutSuggestionRule {
 
     @Action(order = 1)
     public void intense() throws Exception {
-        if (isIntense){
+        if (isIntense == true){
             result = "Rest between each sets around 40s ~ 60s";
         }
     }
     
     @Action(order = 2)
     public void notIntense() throws Exception {
-        if(!isIntense) {
+        if(isIntense == false) {
             result = "Rest between each sets around 60s ~ 90s";
         }
     }

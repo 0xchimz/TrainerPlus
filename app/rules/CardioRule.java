@@ -33,7 +33,7 @@ public class CardioRule {
 
     @Action(order = 1)
     public void notIntense() throws Exception {
-        if (!isIntense) {
+        if (isIntense == false) {
             this.init();
             result = new ArrayList<Cardio>();
             result.add(new LISS(this.maxHR,false));
@@ -42,7 +42,7 @@ public class CardioRule {
 
     @Action(order = 2)
     public void intense() throws Exception {
-        if (isIntense) {
+        if (isIntense == true) {
             this.init();
             result = new ArrayList<Cardio>();
             result.add(new HIIT(this.maxHR,true));

@@ -37,14 +37,14 @@ public class NutritionRule {
 
     @Action(order = 1)
     public void notGain() throws Exception {
-        if (!isGain) {
+        if (isGain == false) {
             this.init(weight, isGain);
         }
     }
 
     @Action(order = 2)
     public void Gain() throws Exception {
-        if (isGain) {
+        if (isGain == true) {
             this.init(weight, isGain);
         }
     }
