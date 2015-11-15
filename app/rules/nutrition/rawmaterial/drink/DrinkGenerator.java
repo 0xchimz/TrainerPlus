@@ -10,9 +10,13 @@ import java.util.ArrayList;
  */
 public class DrinkGenerator {
     private ArrayList<RawMaterial> milk = new ArrayList<RawMaterial>();
+    private ArrayList<RawMaterial> all = new ArrayList<RawMaterial>();
+
 
     public DrinkGenerator() {
         addMilk();
+
+        this.all.addAll(milk);
     }
 
     private void addMilk() {
@@ -21,6 +25,10 @@ public class DrinkGenerator {
     }
     public ArrayList<RawMaterial> getMilk() {
         return this.milk;
+    }
+
+    public ArrayList<RawMaterial> getAll() {
+        return this.all;
     }
 
 }

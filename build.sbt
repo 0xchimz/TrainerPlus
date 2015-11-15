@@ -1,6 +1,6 @@
 //play.Project.playJavaSettings
 
-name := """TrainerPlus"""
+name := """trainer"""
 
 version := "2.5.1"
 
