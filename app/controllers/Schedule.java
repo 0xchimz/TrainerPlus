@@ -57,7 +57,7 @@ public class Schedule extends Controller {
         List<Day> workoutScheduleList = exSchRule.getResult();
         List<Cardio> cardiotScheduleList = caRule.getResult();
 
-        return ok(workout_schedule.render(workoutScheduleList, cardiotScheduleList, cardioIsIntense));
+        return ok(workout_schedule.render(workoutScheduleList, cardiotScheduleList, cardioIsIntense, workoutIsIntense));
     }
 
     public static Result nutritionSchedule() {
