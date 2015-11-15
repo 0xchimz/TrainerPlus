@@ -1,15 +1,12 @@
 package controllers;
 
-import java.util.*;
-
 import models.User;
+import org.joda.time.*;
+import org.joda.time.format.*;
 import play.data.DynamicForm;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.regis;
-
-import java.time.*;
-import java.time.format.*;
 
 /**
  * Created by Frank on 11/15/2015 AD.
@@ -26,18 +23,17 @@ public class Register extends Controller {
         String password = dynamicForm.get("password");
         String birthdate = dynamicForm.get("birthday");
         String gender = dynamicForm.get("gender");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("y-M-d", Locale.ENGLISH);
-        LocalDate localDatedate = LocalDate.parse(birthdate, formatter);
-        Date date = Date.from(localDatedate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        User newUser = User.create(email, password, date, gender);
+        org.joda.time.format.DateTimeFormatter formatter = DateTimeFormat.forPattern("y-M-d");
+        DateTime dt = formatter.parseDateTime(birthdate);
+        User newUser = User.create(email, password, dt, gender);
         if(newUser != null) {
             session().clear();
             User currentUser = User.findByEmail(email);
             session("userId", String.valueOf(currentUser.getId()));
-            flash("success", "Register successful.");
+            flash("success", "Register successful. Please select your plan and input your information.");
             return redirect(routes.Profile.index());
         } else {
-            flash("error", "Register error.");
+            flash("error", "Register error. Email is already taken!");
             return badRequest(regis.render());
         }
     }

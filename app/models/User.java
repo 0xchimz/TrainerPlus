@@ -39,7 +39,7 @@ public class User extends Model {
     @NotNull
     @Required
     @Formats.DateTime(pattern="dd/MM/yyyy")
-    private Date birthday = new Date();
+    private DateTime birthday = new DateTime ();
 
     @NotNull
     @Required
@@ -102,11 +102,11 @@ public class User extends Model {
         this.waistline = waistline;
     }
 
-    public Date getBirthday() {
+    public DateTime getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(DateTime birthday) {
         this.birthday = birthday;
     }
 
@@ -159,11 +159,9 @@ public class User extends Model {
     }
 
     public int getAge() {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(this.birthday);
-        LocalDate birthdate = new LocalDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DATE));
-        LocalDate now = new LocalDate();
-        int age = Years.yearsBetween(birthdate, now).getYears();
+        DateTime now = DateTime.now();
+        Period period = new Period(this.birthday, now);
+        int age = period.getYears();
         return age;
     }
 
@@ -175,7 +173,7 @@ public class User extends Model {
     public static User findById(Long id){
         return find.byId(id);
     }
-    public static User create(String email, String password, Date birthday,String gender){
+    public static User create(String email, String password, DateTime birthday,String gender){
         if(User.find.where().eq("email", email).findUnique() == null) {
             User newUser = new User();
             newUser.email = email;
