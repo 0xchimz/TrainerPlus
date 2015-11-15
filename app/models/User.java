@@ -21,6 +21,17 @@ public class User extends Model {
     @NotNull
     @Constraints.Required
     private String password;
+    private double height;
+    private double weight;
+    private double waistline;
+    private double hip;
+    private int age;
+    private String gender;
+    private boolean isGain;
+    private int userWorkoutDays;
+    private boolean workoutIsIntense;
+    private boolean cardioIsIntense;
+
 
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
 
