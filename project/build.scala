@@ -1,2 +1,2 @@
-import sbt._
-object BuildFromMavenPomSettings extends com.typesafe.sbt.pom.PomBuild
+//import sbt._
+//object BuildFromMavenPomSettings extends com.typesafe.sbt.pom.PomBuild
