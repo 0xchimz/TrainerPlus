@@ -15,7 +15,7 @@ public class DatabaseAuthenticator extends Authenticator {
     }
 
     public User authenticate(String username, String password){
-        User _login = User.findByUsername(username);
+        User _login = User.findByEmail(username);
         if(_login == null) return null;
         if(BCrypt.checkpw(password, _login.getPassword()))
             return _login;
