@@ -12,16 +12,8 @@
 <div class="text-center">
     <div class="center-block" style="background: #c0392b; color: white;; padding: 100px;">
         <h1>WORKOUT PROGRAMS</h1>
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked>
-            </label>
-            @*<label class="btn btn-primary">*@
-                @*<button type="radio" class="pull-right" name="options" style="border-color: white;color: white;background: transparent" autocomplete="off">I Want Cardio</button>*@
-            @*</label>*@
-        </div>
-        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-            Single toggle
+        <button id="i_want" type="button" class="btn btn-warning-outline pull-right active" data-toggle="button" aria-pressed="false" autocomplete="off">
+            I want cardio
         </button>
         </div>
     <div class="container margin-top">
@@ -31,11 +23,14 @@
                 <a class="nav-link active" href="#workout_table" role="tab" data-toggle="tab">Workout Table</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#cardio" role="tab" data-toggle="tab">Cardio</a>
+                <a class="nav-link" href="#cardio" role="tab" data-toggle="tab" id="cardio_tap">Cardio</a>
             </li>
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="container margin-top tab-pane active" id="workout_table">
+                <button id="workout_intense" type="button" class="btn btn-primary-outline pull-left" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    Intense
+                </button>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -65,11 +60,10 @@
             </table>
         </div>
             <div role="tabpanel" class="row container margin-top tab-pane" id="cardio">
-              @if(cardioIsIntense == true){
-                <div class = "col-sm-6">
-              }else {
-              }
-                  <table class="table table-striped"style="width:600px">
+                <button id="cardio_intense" type="button" class="btn btn-primary-outline pull-left" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    Intense
+                </button>
+                  <table class="table table-striped col-sm-12">
                       <thead class ="verticleTable1">
                           <tr>
                               <th class="text-center" style="border-bottom: 0px">Name</th>
@@ -84,48 +78,35 @@
                           </tr>
                       </thead>
                       <tbody class ="verticleTable2">
-                          <tr><td>@cardioList.get(0).getName()</td></tr>
-                          <tr><td>@cardioList.get(0).getFullName()</td></tr>
-                          <tr><td>@cardioList.get(0).getType()</td></tr>
-                          <tr><td>@cardioList.get(0).getHR()</td></tr>
-                          <tr><td>@cardioList.get(0).getDuration()</td></tr>
-                          <tr><td>@cardioList.get(0).getBenefit()</td></tr>
-                          <tr><td>@cardioList.get(0).getFrequency()</td></tr>
-                          <tr><td>@cardioList.get(0).getAverage()</td></tr>
-                          <tr><td>@cardioList.get(0).getDescription()</td></tr>
+                          <tr><td>@cardioList.get(0).getName()</td>
+                          <td>@cardioList.get(0).getFullName()</td>
+                          <td>@cardioList.get(0).getType()</td>
+                          <td>@cardioList.get(0).getHR()</td>
+                          <td>@cardioList.get(0).getDuration()</td>
+                          <td>@cardioList.get(0).getBenefit()</td>
+                          <td>@cardioList.get(0).getFrequency()</td>
+                          <td>@cardioList.get(0).getAverage()</td>
+                          <td>@cardioList.get(0).getDescription()</td>
+                          </tr>
+                  @if(cardioIsIntense == true){
+                          <tr>
+                              <td>@cardioList.get(1).getName()</td>
+                          <td>@cardioList.get(1).getFullName()</td>
+                          <td>@cardioList.get(1).getType()</td>
+                          <td>@cardioList.get(1).getHR()</td>
+                          <td>@cardioList.get(1).getDuration()</td>
+                          <td>@cardioList.get(1).getBenefit()</td>
+                          <td>@cardioList.get(1).getFrequency()</td>
+                          <td>@cardioList.get(1).getAverage()</td>
+                          <td>@cardioList.get(1).getDescription()</td></tr>
                       </tbody>
                   </table>
                 </div>
-                <div class="col-sm-6">
-                  @if(cardioIsIntense == true){
-                    <table class="table table-striped">
-                        <thead class ="verticleTable1">
-                            <tr>
-                                <th class="text-center" style="border-bottom: 0px">Name</th>
-                                <th class="text-center" style="border-bottom: 0px">Fullname</th>
-                                <th class="text-center" style="border-bottom: 0px">Type</th>
-                                <th class="text-center" style="border-bottom: 0px">Hearth rate</th>
-                                <th class="text-center" style="border-bottom: 0px">Duration</th>
-                                <th class="text-center" style="border-bottom: 0px">Benefits</th>
-                                <th class="text-center" style="border-bottom: 0px">Frequency</th>
-                                <th class="text-center" style="border-bottom: 0px">Average</th>
-                                <th class="text-center" style="border-bottom: 0px">Description</th>
-                            </tr>
-                        </thead>
-                        <tbody class ="verticleTable2">
-                          <tr><td>@cardioList.get(1).getName()</td></tr>
-                          <tr><td>@cardioList.get(1).getFullName()</td></tr>
-                          <tr><td>@cardioList.get(1).getType()</td></tr>
-                          <tr><td>@cardioList.get(1).getHR()</td></tr>
-                          <tr><td>@cardioList.get(1).getDuration()</td></tr>
-                          <tr><td>@cardioList.get(1).getBenefit()</td></tr>
-                          <tr><td>@cardioList.get(1).getFrequency()</td></tr>
-                          <tr><td>@cardioList.get(1).getAverage()</td></tr>
-                          <tr><td>@cardioList.get(1).getDescription()</td></tr>
-                        </tbody>
-                    </table>
-                  }
+            } else{
+                </tbody>
+                </table>
                 </div>
+            }
 
             </div>
         </div>
@@ -136,8 +117,18 @@
 </div>
 
     <script>
-//        function heartbeat(obj){
-//            $(obj).css("
-//        }
+        var cardio = 1;
+        $('#i_want').click(function(){
+            if (cardio==0){
+                $("#cardio_tap").show();
+                cardio++
+            }
+            else{
+                $("#cardio_tap").hide();
+                cardio--;
+            }
+
+        })
+
     </script>
 }
