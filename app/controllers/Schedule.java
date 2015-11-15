@@ -72,7 +72,7 @@ public class Schedule extends Controller {
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
 
-        tdeeRule.setInput(weight,thisUser.getHeight(),thisUser.getGender(),20,1.2);
+        tdeeRule.setInput(weight,thisUser.getHeight(),thisUser.getGender(),thisUser.getAge(),1.2);
         rulesEngine.registerRule(tdeeRule);
 
         meatRule.setInput(true);
