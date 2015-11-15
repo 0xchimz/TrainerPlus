@@ -19,11 +19,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="@routes.Profile.index()">My Profile</a>
                 </li>
-                <li class="pull-right nav-item">
-                    Welcome, @Authentication.getCurrentUser(Long.parseLong(session.get("userId")))
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.Authentication.logout()">Logout</a>
                 </li>
                 <li class="nav-item pull-right">
-                    <a class="nav-link" href="@routes.Authentication.logout()">Logout</a>
+                    <span class="nav-me">
+                        Welcome, @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getEmail()
+                    </span>
                 </li>
             } else {
                 <li class="nav-item pull-right">
