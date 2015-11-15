@@ -51,14 +51,13 @@
         $(obj).css("color", "white");
         $(obj).find('img').addClass("inverse");
         temp = obj;
-        console.log("click : " + $("#input_goal").val());
     }
     $( document ).ready(function() {
-      console.log($("#input_goal").val())
-      if($("#input_goal").val()=== true){
-          changeColor($("#gainWeight"), 0);
+      var val = $("#input_goal").val();
+      if(val == 'true'){
+          changeColor($("#gainWeight"), 1);
       }else{
-          changeColor($("#loseWeight"), 1);
+          changeColor($("#loseWeight"), 0);
       }
 
     });
