@@ -31,7 +31,7 @@ public class HIIT implements Cardio {
         return this.name;
     }
 
-    public String getFullname() {
+    public String getFullName() {
         return this.fullname;
     }
 
