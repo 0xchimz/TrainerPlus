@@ -1,4 +1,5 @@
-@(list :List[rules.nutrition.Nutrition])
+@(nulist :List[rules.nutrition.Nutrition])(rawMaterialList :List[rules.nutrition.rawmaterial.RawMaterial])
+
 @import rules.nutrition.Nutrition;
 @import rules.nutrition.Fat;
 @import rules.nutrition.Protein;
@@ -50,6 +51,34 @@
             </table>
 
         </div>
+        <h1 type="center-block" style="background: #9b59b6; color: white;; padding: 100px;">Raw Material's Protein Table</h1>
+            <div class="container margin-top">
+        
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Classification</th>
+                            <th>Material</th>
+                            <th>Amount</th>
+                            <th>Protein provided</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @rawMaterialList.zipWithIndex.map { case (raw, index) =>
+                    <tr>
+                        <td>@raw.getType()</td>
+                        <td>@raw.getClassification()</td>
+                        <td>@raw.getName</td>
+                        <td>@raw.getAmount</td>
+                        <td>@raw.getProtein</td>
+                    </tr>
+                    }
+                    </tbody>
+                </table>
+
+            </div>
+
         <a type="link" href="@routes.Schedule.index()" class="btn btn-success-outline btn-lg">Back</a>
     </div>
     <div class="col-md-2 col-lg-3">
