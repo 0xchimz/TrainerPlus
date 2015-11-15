@@ -23,20 +23,30 @@ public class ExerciseScheduleRule {
     @Condition
     public boolean checkInput() {
         //The rule should be applied only if the user's response is yes (duke friend)
-        return day >= 2 && day <= 5;
+        return day >= 2 && day <= 5 && (gender.equalsIgnoreCase("male") || gender.equalsIgnoreCase("female"));
     }
 
     @Action(order = 1)
     public void Intense() throws Exception {
         if (isIntense == true){
-            result = new ExerciseGenerator().generate(day, isIntense);
+            if(gender.equalsIgnoreCase("male")) {
+                result = new ExerciseGenerator().generate(day, true, false);
+            }
+            else {
+                result = new ExerciseGenerator().generate(day, true, true);
+            }
         }
     }
     
     @Action(order = 2)
     public void notIntense() throws Exception {
         if (isIntense == false){
-            result = new ExerciseGenerator().generate(day, isIntense);
+            if(gender.equalsIgnoreCase("male")) {
+                result = new ExerciseGenerator().generate(day, false, false);
+            }
+            else {
+                result = new ExerciseGenerator().generate(day, false, true);
+            }
         }
     }
 

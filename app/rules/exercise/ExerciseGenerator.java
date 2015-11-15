@@ -30,8 +30,14 @@ public class ExerciseGenerator {
     private ArrayList<Exercise> shoulders = new ArrayList<Exercise>();
 
 
-    public void addChestExercise(boolean isIntense) {
-        this.chests.add(new BarbellBenchPress());
+    public void addChestExercise(boolean isIntense, boolean isGirl) {
+        if(isGirl) {
+            this.chests.add(new DumbbellBenchPress());
+        }
+        else {
+            this.chests.add(new BarbellBenchPress());
+        }
+
         this.chests.add(new DipForChest());
         if(isIntense) {
             this.chests.add(new DumbbellFly());
@@ -40,12 +46,12 @@ public class ExerciseGenerator {
     }
 
     public void addBackExercise(boolean isIntense) {
-        this.backs.add(new BackExtension());
+        this.backs.add(new LatPullDown());
         this.backs.add(new BarbellDeadlift());
 
         if(isIntense) {
+            this.backs.add(new BackExtension());
             this.backs.add(new BarbellRow());
-            this.backs.add(new LatPullDown());
         }
     }
 
@@ -54,17 +60,32 @@ public class ExerciseGenerator {
         this.abs.add(new ObliqueCrunch());
 
         if(isIntense) {
+            this.abs.add(new Plank());
             this.abs.add(new StandingBarbellTwist());
         }
     }
 
-    public void addLegExercise(boolean isIntense) {
+    public void addLegExercise(boolean isIntense, boolean isGirl) {
         this.legs.add(new BarbellSquat());
 
-        if(isIntense) {
-            this.legs.add(new LegExtension());
-            this.legs.add(new LegPress());
+        if(isGirl == false) {
+
+            if(isIntense) {
+                this.legs.add(new LegExtension());
+                this.legs.add(new LegPress());
+            }
         }
+        else {
+            this.legs.add(new WalkingLunge());
+            this.legs.add(new SideLegRaise());
+
+            if(isIntense) {
+                this.legs.add(new SumoSquat());
+                this.legs.add(new DonkeyKick());
+            }
+        }
+
+
     }
 
     public void addHamExercise(boolean isIntense) {
@@ -92,10 +113,10 @@ public class ExerciseGenerator {
     }
 
     public void addTricpesExercise(boolean isIntense) {
-        this.triceps.add(new TricepsExtension());
+        this.triceps.add(new TricepsPushDown());
 
         if(isIntense) {
-            this.triceps.add(new TricepsPushDown());
+            this.triceps.add(new TricepsExtension());
         }
     }
 
@@ -105,30 +126,32 @@ public class ExerciseGenerator {
 
     public void addShoulderExercise(boolean isIntense) {
         this.shoulders.add(new DumbbellShoulderPress());
-        this.shoulders.add(new HighPull());
+        this.shoulders.add(new SideLateralRaise());
 
         if(isIntense) {
             this.shoulders.add(new ReverseFly());
-            this.shoulders.add(new SideLateralRaise());
+            this.shoulders.add(new HighPull());
         }
     }
 
-    public void addAll (boolean isIntense){
+    public void addAll (boolean isIntense, boolean isGirl){
 
         this.addAbsExercise(isIntense);
         this.addBackExercise(isIntense);
         this.addBicepsExercise(isIntense);
-        this.addCalfExercise(isIntense);
-        this.addChestExercise(isIntense);
+        this.addChestExercise(isIntense, isGirl);
         this.addHamExercise(isIntense);
-        this.addLegExercise(isIntense);
+        this.addLegExercise(isIntense, isGirl);
+        if(isGirl == false) {
+            this.addCalfExercise(isIntense);
+        }
         this.addShoulderExercise(isIntense);
         this.addTrapzExercise(isIntense);
         this.addTricpesExercise(isIntense);
     }
 
-    public ArrayList<Day> create5DaysExercise(boolean isIntense) {
-        this.addAll(isIntense);
+    public ArrayList<Day> create5DaysExercise(boolean isIntense, boolean isGirl) {
+        this.addAll(isIntense, isGirl);
         ArrayList<Day> days = new ArrayList<Day>();
 
         ArrayList<Exercise> day1 = new ArrayList<Exercise>(this.chests);
@@ -159,8 +182,8 @@ public class ExerciseGenerator {
         return days;
     }
 
-    public ArrayList<Day> create4DaysExercise(boolean isIntense) {
-        this.addAll(isIntense);
+    public ArrayList<Day> create4DaysExercise(boolean isIntense, boolean isGirl) {
+        this.addAll(isIntense, isGirl);
         ArrayList<Day> days = new ArrayList<Day>();
 
         ArrayList<Exercise> day1 = new ArrayList<Exercise>(this.chests);
@@ -188,8 +211,8 @@ public class ExerciseGenerator {
         return days;
     }
 
-    public ArrayList<Day> create3DaysExercise(boolean isIntense) {
-        this.addAll(isIntense);
+    public ArrayList<Day> create3DaysExercise(boolean isIntense, boolean isGirl) {
+        this.addAll(isIntense, isGirl);
         ArrayList<Day> days = new ArrayList<Day>();
 
         ArrayList<Exercise> day1 = new ArrayList<Exercise>(this.chests);
@@ -213,8 +236,8 @@ public class ExerciseGenerator {
         return days;
     }
 
-    public ArrayList<Day> create2DaysExercise(boolean isIntense) {
-        this.addAll(isIntense);
+    public ArrayList<Day> create2DaysExercise(boolean isIntense, boolean isGirl) {
+        this.addAll(isIntense, isGirl);
         ArrayList<Day> days = new ArrayList<Day>();
 
         ArrayList<Exercise> day1 = new ArrayList<Exercise>();
@@ -240,11 +263,11 @@ public class ExerciseGenerator {
         return days;
     }
 
-    public ArrayList<Day> generate(int day, boolean isIntense) {
-        if(day == 2) return create2DaysExercise(isIntense);
-        else if(day == 3) return create3DaysExercise(isIntense);
-        else if(day == 4) return create4DaysExercise(isIntense);
-        else if(day == 5) return create5DaysExercise(isIntense);
+    public ArrayList<Day> generate(int day, boolean isIntense, boolean isGirl) {
+        if(day == 2) return create2DaysExercise(isIntense, isGirl);
+        else if(day == 3) return create3DaysExercise(isIntense, isGirl);
+        else if(day == 4) return create4DaysExercise(isIntense, isGirl);
+        else if(day == 5) return create5DaysExercise(isIntense, isGirl);
         else return null;
     }
 
