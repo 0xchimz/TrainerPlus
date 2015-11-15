@@ -19,6 +19,7 @@ public class Authentication extends Controller {
         DynamicForm dynamicForm = new DynamicForm().bindFromRequest();
         String username = dynamicForm.get("username");
         String password = dynamicForm.get("password");
+        return ok();
     }
 
 }

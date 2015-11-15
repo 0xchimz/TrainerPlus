@@ -3,6 +3,7 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import org.mindrot.jbcrypt.BCrypt;
 
 import play.data.validation.Constraints;
 import play.db.ebean.*;
@@ -36,5 +37,8 @@ public class User extends Model {
             return newUser;
         }
         return null;
+    }
+    public String getPassword() {
+        return password;
     }
 }

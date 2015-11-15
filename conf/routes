@@ -5,7 +5,7 @@
 # Home page
 GET        /                    controllers.Home.index()
 GET        /login               controllers.Authentication.index()
-POST       /login               controllers.Authentication.login()
+POST       /login               controllers.Authentication.authenticate()
 GET        /profile             controllers.Profile.index()
 GET        /select_schedule     controllers.Schedule.index()
 GET        /workout_schedule    controllers.Schedule.workoutSchedule()
