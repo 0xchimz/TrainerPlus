@@ -33,7 +33,7 @@ public class ExerciseGenerator {
     public void addChestExercise(boolean isIntense) {
         this.chests.add(new BarbellBenchPress());
         this.chests.add(new DipForChest());
-        if(!isIntense) {
+        if(isIntense) {
             this.chests.add(new DumbbellFly());
             this.chests.add(new InclineDumbbellBenchPress());
         }
@@ -43,7 +43,7 @@ public class ExerciseGenerator {
         this.backs.add(new BackExtension());
         this.backs.add(new BarbellDeadlift());
 
-        if(!isIntense) {
+        if(isIntense) {
             this.backs.add(new BarbellRow());
             this.backs.add(new LatPullDown());
         }
@@ -53,7 +53,7 @@ public class ExerciseGenerator {
         this.abs.add(new Crunch());
         this.abs.add(new ObliqueCrunch());
 
-        if(!isIntense) {
+        if(isIntense) {
             this.abs.add(new StandingBarbellTwist());
         }
     }
@@ -61,7 +61,7 @@ public class ExerciseGenerator {
     public void addLegExercise(boolean isIntense) {
         this.legs.add(new BarbellSquat());
 
-        if(!isIntense) {
+        if(isIntense) {
             this.legs.add(new LegExtension());
             this.legs.add(new LegPress());
         }
@@ -70,7 +70,7 @@ public class ExerciseGenerator {
     public void addHamExercise(boolean isIntense) {
         this.ham.add(new BarbellStiffLegDeadlift());
 
-        if(!isIntense) {
+        if(isIntense) {
             this.ham.add(new SeatedLegCurl());
         }
     }
@@ -78,7 +78,7 @@ public class ExerciseGenerator {
     public void addCalfExercise(boolean isIntense) {
         this.calf.add(new BarbellStandingCalfRaise());
 
-        if(!isIntense) {
+        if(isIntense) {
             this.calf.add(new SeatedCalfRaise());
         }
     }
@@ -86,7 +86,7 @@ public class ExerciseGenerator {
     public void addBicepsExercise(boolean isIntense) {
         this.biceps.add(new BarbellCurl());
 
-        if(!isIntense) {
+        if(isIntense) {
             this.biceps.add(new PreacherCurl());
         }
     }
@@ -94,7 +94,7 @@ public class ExerciseGenerator {
     public void addTricpesExercise(boolean isIntense) {
         this.triceps.add(new TricepsExtension());
 
-        if(!isIntense) {
+        if(isIntense) {
             this.triceps.add(new TricepsPushDown());
         }
     }
@@ -107,7 +107,7 @@ public class ExerciseGenerator {
         this.shoulders.add(new DumbbellShoulderPress());
         this.shoulders.add(new HighPull());
 
-        if(!isIntense) {
+        if(isIntense) {
             this.shoulders.add(new ReverseFly());
             this.shoulders.add(new SideLateralRaise());
         }
