@@ -23,6 +23,17 @@
               <label for="input_hip">Hip</label>
               <input type="text" class="form-control" name="inputhip" placeholder="ex. 33 inches" value="@user.getHip()">
             </div>
+            <div class="form-group">
+              <label for="input_gender">Workout Days</label>
+              <select id="day" class="c-select" name="workoutDays" required>
+                <option value="3">3 Days</option>
+                <option value="4">4 Days</option>
+                <option value="5">5 Days</option>
+              </select>
+            </div>
+            <script>
+                    $("#day").val("@user.getUserWorkoutDays");
+            </script>
             <input type="hidden" class="form-control" id="input_goal" name="inputgoal">
             <div class="row">
               <div class="col-xs-12 col-md-4 col-lg-3 pull-right">

@@ -24,6 +24,7 @@ public class Profile extends Controller {
       thisUser.setWaistline(Double.parseDouble(dynamicForm.get("inputwaistline")));
       thisUser.setHip(Double.parseDouble(dynamicForm.get("inputhip")));
       thisUser.setIsGain(Boolean.parseBoolean(dynamicForm.get("inputgoal")));
+        thisUser.setUserWorkoutDays(Integer.parseInt(dynamicForm.get("workoutDays")));
       thisUser.update();
       return ok(profile.render(thisUser));
 
