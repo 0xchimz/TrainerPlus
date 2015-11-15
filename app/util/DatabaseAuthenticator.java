@@ -14,7 +14,6 @@ public class DatabaseAuthenticator extends Authenticator {
         return dba;
     }
 
-
     public User authenticate(String username, String password){
         User _login = User.findByUsername(username);
         if(_login == null) return null;
