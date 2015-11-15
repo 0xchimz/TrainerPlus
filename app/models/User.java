@@ -24,16 +24,16 @@ public class User extends Model {
     @Required
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private double height;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private double weight;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private double waistline;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private double hip;
 
     @NotNull
@@ -46,10 +46,10 @@ public class User extends Model {
     @Column(length = 10)
     private String gender;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private boolean isGain;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int userWorkoutDays;
     private boolean workoutIsIntense;
     private boolean cardioIsIntense;
