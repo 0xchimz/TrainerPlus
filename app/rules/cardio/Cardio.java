@@ -5,6 +5,7 @@ package rules.cardio;
  */
 public interface Cardio {
     public String getName();
+    public String getFullName();
     public String getType();
     public String getLowerHR();
     public String getUpperHR();

@@ -8,7 +8,8 @@ public class HIIT implements Cardio {
     private double HIITLower = 0.65;
     private double HIITUpper = 0.85;
 
-    private String name = "HIIT (High-Intensity-Interval Training)";
+    private String name = "HIIT";
+    private String fullname = "High-Intensity-Interval Training";
     private String type = "Anaerobic";
     private String duration = "4-20 mins";
     private String benefits = "Increase Metabolism & Strength";
@@ -28,6 +29,10 @@ public class HIIT implements Cardio {
 
     public String getName() {
         return this.name;
+    }
+
+    public String getFullname() {
+        return this.fullname;
     }
 
     public String getType() {

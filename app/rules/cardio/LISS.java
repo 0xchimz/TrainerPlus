@@ -8,7 +8,8 @@ public class LISS implements Cardio {
     private double LISSLower = 0.6;
     private double LISSUpper = 0.75;
 
-    private String name = "LISS (Low Intensity Steady State)";
+    private String name = "LISS";
+    private String fullname = "Low Intensity Steady State";
     private String type = "Aerobic";
     private String duration = "30-60 mins";
     private String benefits = "Burn Fat";
@@ -27,6 +28,10 @@ public class LISS implements Cardio {
 
     public String getName() {
         return this.name;
+    }
+
+    public String getFullName() {
+        return this.fullname;
     }
 
     public String getType() {
