@@ -13,6 +13,7 @@ public class MeatGenerator {
     private ArrayList<RawMaterial> seafood = new ArrayList<RawMaterial>();
     private ArrayList<RawMaterial> beef = new ArrayList<RawMaterial>();
     private ArrayList<RawMaterial> wild = new ArrayList<RawMaterial>();
+    private ArrayList<RawMaterial> all = new ArrayList<RawMaterial>();
 
     public MeatGenerator() {
         addChicken();
@@ -20,6 +21,12 @@ public class MeatGenerator {
         addPig();
         addSeafood();
         addWild();
+
+        this.all.addAll(chicken);
+        this.all.addAll(pig);
+        this.all.addAll(seafood);
+        this.all.addAll(beef);
+        this.all.addAll(wild);
     }
 
     private void addChicken() {
@@ -66,5 +73,9 @@ public class MeatGenerator {
 
     public ArrayList<RawMaterial> getWild() {
         return this.wild;
+    }
+
+    public ArrayList<RawMaterial> getAll() {
+        return this.all;
     }
 }

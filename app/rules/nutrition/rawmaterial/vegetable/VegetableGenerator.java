@@ -12,11 +12,15 @@ public class VegetableGenerator {
     private ArrayList<RawMaterial> nut = new ArrayList<RawMaterial>();
     private ArrayList<RawMaterial> egg = new ArrayList<RawMaterial>();
     private ArrayList<RawMaterial> soy = new ArrayList<RawMaterial>();
+    private ArrayList<RawMaterial> all = new ArrayList<RawMaterial>();
 
     public VegetableGenerator() {
         addNut();
         addEgg();
         addSoy();
+        this.all.addAll(nut);
+        this.all.addAll(egg);
+        this.all.addAll(soy);
     }
 
     private void addNut() {
@@ -42,5 +46,9 @@ public class VegetableGenerator {
     }
     public ArrayList<RawMaterial> getSoy() {
         return this.soy;
+    }
+
+    public ArrayList<RawMaterial> getAll() {
+        return this.all;
     }
 }
