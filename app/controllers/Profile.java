@@ -19,12 +19,12 @@ public class Profile extends Controller {
     public static Result editProfile(){
       DynamicForm dynamicForm = new DynamicForm().bindFromRequest();
       User thisUser = User.findById(Long.parseLong(session("userId")));
-        thisUser.setHeight(Double.parseDouble(dynamicForm.get("inputheight")));
-       thisUser.setWeight(Double.parseDouble(dynamicForm.get("inputweight")));
-       thisUser.setWaistline(Double.parseDouble(dynamicForm.get("inputwaistline")));
-       thisUser.setHip(Double.parseDouble(dynamicForm.get("inputhip")));
-       thisUser.setIsGain(Boolean.parseBoolean(dynamicForm.get("inputgoal")));
-       thisUser.update();
+      thisUser.setHeight(Double.parseDouble(dynamicForm.get("inputheight")));
+      thisUser.setWeight(Double.parseDouble(dynamicForm.get("inputweight")));
+      thisUser.setWaistline(Double.parseDouble(dynamicForm.get("inputwaistline")));
+      thisUser.setHip(Double.parseDouble(dynamicForm.get("inputhip")));
+      thisUser.setIsGain(Boolean.parseBoolean(dynamicForm.get("inputgoal")));
+      thisUser.update();
       return ok(profile.render(thisUser));
 
     }
