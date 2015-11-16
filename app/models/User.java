@@ -51,7 +51,8 @@ public class User extends Model {
     @Column(nullable = true)
     private int userWorkoutDays;
     private boolean workoutIsIntense = false;
-    private boolean cardioIsIntense = false;
+    @Column(nullable = true, columnDefinition = "tinyint(1) default 1")
+    private boolean cardioIsIntense = true;
 
     public double getHip() {
         return hip;

@@ -32,6 +32,7 @@ public class Profile extends Controller {
       thisUser.setIsGain(isGain);
       thisUser.setUserWorkoutDays(Integer.parseInt(dynamicForm.get("workoutDays")));
       thisUser.update();
+      flash("success", "Your information was updated!");
       return ok(profile.render(thisUser));
 
     }
