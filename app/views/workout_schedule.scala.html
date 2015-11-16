@@ -113,18 +113,20 @@
                           <td>@cardioList.get(0).getAverage()</td>
                           <td>@cardioList.get(0).getDescription()</td>
                           </tr>
+                          @if(cardioIsIntense == True){
+                            <tr id="table_intense_cardio" style="display: none;">
+                                <td>@cardioList.get(1).getName()</td>
+                            <td>@cardioList.get(1).getFullName()</td>
+                            <td>@cardioList.get(1).getType()</td>
+                            <td>@cardioList.get(1).getHR()</td>
+                            <td>@cardioList.get(1).getDuration()</td>
+                            <td>@cardioList.get(1).getBenefit()</td>
+                            <td>@cardioList.get(1).getFrequency()</td>
+                            <td>@cardioList.get(1).getAverage()</td>
+                            <td>@cardioList.get(1).getDescription()</td>
+                            </tr>
+                          }
 
-                          <tr id="table_intense_cardio" style="display: none;">
-                              <td>@cardioList.get(1).getName()</td>
-                          <td>@cardioList.get(1).getFullName()</td>
-                          <td>@cardioList.get(1).getType()</td>
-                          <td>@cardioList.get(1).getHR()</td>
-                          <td>@cardioList.get(1).getDuration()</td>
-                          <td>@cardioList.get(1).getBenefit()</td>
-                          <td>@cardioList.get(1).getFrequency()</td>
-                          <td>@cardioList.get(1).getAverage()</td>
-                          <td>@cardioList.get(1).getDescription()</td>
-                          </tr>
                       </tbody>
                   </table>
                 </div>
