@@ -22,22 +22,14 @@ import models.*;
  * Created by Frank on 11/14/2015 AD.
  */
 public class Schedule extends Controller {
-    private static ExerciseScheduleRule exSchRule = new ExerciseScheduleRule();
-    private static NutritionRule nuRule = new NutritionRule();
-    private static CardioRule caRule = new CardioRule();
-
-    private static TDEERule tdeeRule = new TDEERule();
-    private static CalEatingRule calEatingRule = new CalEatingRule();
-
-    private static MeatRule meatRule = new MeatRule();
-    private static VegetableRule vegetableRule = new VegetableRule();
-    private static DrinkRule drinkRule = new DrinkRule();
 
     public static Result index() {
         return ok(select_schedule.render());
     }
 
     public static Result workoutSchedule() {
+        ExerciseScheduleRule exSchRule = new ExerciseScheduleRule();
+        CardioRule caRule = new CardioRule();
         User thisUser = User.findById(Long.parseLong(session("userId")));
         int userWorkoutDays = thisUser.getUserWorkoutDays();
         int age = thisUser.getAge();
@@ -70,6 +62,13 @@ public class Schedule extends Controller {
     }
 
     public static Result nutritionSchedule() {
+        TDEERule tdeeRule = new TDEERule();
+        CalEatingRule calEatingRule = new CalEatingRule();
+        NutritionRule nuRule = new NutritionRule();
+        MeatRule meatRule = new MeatRule();
+        VegetableRule vegetableRule = new VegetableRule();
+        DrinkRule drinkRule = new DrinkRule();
+
         User thisUser = User.findById(Long.parseLong(session("userId")));
         double weight = thisUser.getWeight();
         boolean isGain = thisUser.isGain();
@@ -103,14 +102,17 @@ public class Schedule extends Controller {
 
         List<String> tdees = new ArrayList<String>();
         List<String> eatingCals = new ArrayList<String>();
-        for(int i=0;i<5;i++) {
-            tdeeRule.setInput(weight, height, thisUser.getGender(), thisUser.getAge(), 1.2+(i*0.2));
-            rulesEngine.registerRule(tdeeRule);
-            rulesEngine.fireRules();
+        RulesEngine rulesEngine_tdee = aNewRulesEngine().withSilentMode(true).build();
+        RulesEngine rulesEngine_cal = aNewRulesEngine().withSilentMode(true).build();
+        rulesEngine_tdee.registerRule(tdeeRule);
+        rulesEngine_cal.registerRule(calEatingRule);
+        for(int i=0; i < 5; i++) {
+            tdeeRule.setInput(weight, height, thisUser.getGender(), thisUser.getAge(), 1.2 + (i * 0.2));
+            rulesEngine_tdee.fireRules();
             tdees.add(tdeeRule.getResult());
             calEatingRule.setInput(Double.parseDouble(tdees.get(i)), isGain);
-            rulesEngine.registerRule(calEatingRule);
-            rulesEngine.fireRules();
+
+            rulesEngine_cal.fireRules();
             eatingCals.add(calEatingRule.getResult());
         }
         return ok(nutrition_schedule.render(nuList,rawMaterialList, tdees, eatingCals));

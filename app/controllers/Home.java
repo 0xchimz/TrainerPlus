@@ -1,10 +1,17 @@
 package controllers;
 
 import models.User;
+import models.WeightHistory;
+import org.easyrules.api.RulesEngine;
 import play.mvc.Controller;
 import play.mvc.Result;
+import rules.ObesityRule;
 import views.html.home;
 import views.html.regis;
+
+import java.util.List;
+
+import static org.easyrules.core.RulesEngineBuilder.aNewRulesEngine;
 
 /**
  * Created by Frank on 11/14/2015 AD.
@@ -12,11 +19,25 @@ import views.html.regis;
 public class Home extends Controller {
 
     public static Result index() {
-        return ok(home.render());
+        String result = null;
+        List<WeightHistory> weightHistory = null;
+        if(session("userId") != null){
+            ObesityRule obesityRule = new ObesityRule();
+            RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
+            rulesEngine.registerRule(obesityRule);
+            User thisUser = User.findById(Long.parseLong(session("userId")));
+            obesityRule.setInput(thisUser.getGender(), thisUser.getWaistline() / thisUser.getHip());
+            rulesEngine.fireRules();
+            result = obesityRule.getResult();
+
+            weightHistory =  WeightHistory.findByUser(thisUser);
+        }
+
+        return ok(home.render(result, weightHistory));
     }
     public static Result mock() {
 //        User.create("chincub@gmail.com","015335510");
-        return ok(home.render());
+        return ok(home.render(null, null));
     }
 
     public static Result register(){

@@ -2,7 +2,7 @@
 @base(title)(nav)(content)(footer)
 @nav = {
 <nav class="navbar navbar-light" style="border-radius: 0px; border-color: black; border-bottom: 2px; border-style: solid; border-top: 0px; border-right: 0px; border-left: 0px;">
-    <div class="container ">
+    <div class="container">
         <ul class="nav navbar-nav">
             <li class="nav-item">
                 <a href="@routes.Home.index()">
@@ -24,7 +24,7 @@
                 </li>
                 <li class="nav-item pull-right">
                     <span class="nav-me">
-                        @*Welcome, @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getEmail()*@
+                        Welcome, @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getEmail()
                     </span>
                 </li>
             } else {
@@ -41,8 +41,10 @@
 }
 
 @footer = {
-<footer class="bg-faded margin-top paging">
-    <div>Course: Knowledge Engineer and Knowledge Management</div>
-    <div>Developed by Chin, Smart, Kit, Ong, Frank and Emmy</div>
-</footer>
+    <footer class="footer" style="padding-top: 20px; background: #f5f5f5">
+        <div class="container">
+            <p class="" style="margin-bottom: 0px;"><small>Course: Knowledge Engineer and Knowledge Management</small></p>
+            <p class="text-muted"><small>Developed by Chin, Smart, Kit, Ong, Frank and Emmy</small></p>
+        </div>
+    </footer>
 }

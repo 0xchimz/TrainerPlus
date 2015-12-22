@@ -1,3 +1,5 @@
+@import java.util
+@(result: String)(weightHistorys: util.List[WeightHistory])
 @base_with_nav("Trainer+")(content)
 @content = {
     @*<img data-src="holder.js/100px250?fg=ffffff&bg=39DBAC&text=Trainer +" >*@
@@ -5,77 +7,103 @@
         <div class="container margin-top">
             <div class="row">
                 <div class="col-md-2 col-lg-3">
-                </div>
-                <div class="col-xs-12 col-md-8 col-lg-6">
                     <div class="card card-block card-info">
                         <div class="card-block text-center" style="color: white">
-                        <h4>Height @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getHeight() cm.</h4>
+                            <h4 class="card-title">Personal Information</h4>
+                            <p class="card-text">Height @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getHeight() cm.</p>
+                            <p class="card-text">Weight @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getWeight() kg.</p>
                         </div>
-                        <div class="card-block text-center" style="color: white">
-                        <h4>Weight @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getWeight() kg.</h4>
+
+                    </div>
+
+                    @if(result.equals("Your health is OK.")){
+                        <div class="card card-block card-success">
+                            <div class="card-block" style="color: white">
+                                <h4 class="card-title">Obesity: @result</h4>
+                            </div>
                         </div>
+                    }
+                    @if(result.equals("You are at risk to obesity.")){
+                        <div class="card card-block card-warning">
+                            <div class="card-block" style="color: white">
+                                <h4 class="card-title">@result</h4>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="col-xs-12 col-md-10 col-lg-9">
+                    <div class="card card-block">
+                        <div class="card-block text-center">
+                            <h4 class="card-title">Weight History</h4>
+                            <div id="myfirstchart" style="height: 250px;"></div>
+                            <script>
+                                new Morris.Line({
+                                  // ID of the element in which to draw the chart.
+                                  element: 'myfirstchart',
+                                  // Chart data records -- each entry in this array corresponds to a point on
+                                  // the chart.
+                                  data: [
+                                  @weightHistorys.map{weightHistory =>
+                                    { date: "@weightHistory.getAdded", value: @weightHistory.getWeight },
+
+
+                                    }
+                                  ],
+                                  // The name of the data record attribute that contains x-values.
+                                  xkey: 'date',
+                                  // A list of names of data record attributes that contain y-values.
+                                  ykeys: ['value'],
+                                  // Labels for the ykeys -- will be displayed when you hover over the
+                                  // chart.
+                                  labels: ['Weight']
+                                });
+                            </script>
 
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-md-2 col-lg-3">
-        </div>
-
-
-        <div class="container margin-top">
-            <div class="row">
-                <div class="col-md-1 col-lg-1">
-                </div>
-                <div class="col-xs-12 col-md-5 col-lg-5">
-                    <div class="card card-block card-success">
-                        @*<img class="card-img-top" data-src="holder.js/100px200/" >*@
-                        <div class="card-block" style="color: white">
-                            <h4 class="card-title">Obesity: No Risk</h4>
-                            @*<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>*@
-                            @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-5 col-lg-5">
-                    <div class="card card-block card-success">
-                        @*<img class="card-img-top" data-src="holder.js/100px200/" >*@
-                        <div class="card-block" style="color: white">
-                            <h4 class="card-title">Sleep: Good</h4>
-                            @*<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>*@
-                            @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
-                        </div>
-                    </div>
-                </div>
                 } else{
         <div>
             <div style="font-size: 700%; position: absolute; color: white; display: inline; text-align: center; width: 100%; margin-top: 10%;">
                 Trainer +
             </div>
+            <div class="paging-top-lg paging-bottom-lg text-center" style="width: 100%;color: white;position: absolute; margin-top: 20%;">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4"></div>
+                    <div class="col-xs-12 col-md-4 col-lg-4">
+                        <p>We are waiting for you.</p>
+                        <div class="container">
+                            <a class="btn btn-secondary btn-block btn-lg" href="@routes.Register.register()" style="border-color: white ; color: white ; background: transparent">
+                                Sign Up</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4"></div>
+
+                </div>
+            </div>
             <img src="assets/images/home.PNG" style="width: 100%" >
 
         </div>
     }
-    <div class="col-md-1 col-lg-1">
-    </div>
-</div>
-</div>
-    @if(session.get("userId") == null) {
-        <div class="bg-info paging-top-lg paging-bottom-lg text-center">
-            <div class="row">
-                <div class="col-md-4 col-lg-4"></div>
-                <div class="col-xs-12 col-md-4 col-lg-4">
-                    <p>We are waiting for you.</p>
-                    <div class="container">
-                        <a class="btn btn-secondary btn-block btn-lg" href="@routes.Register.register()" style="border-color: white ; color: white ; background: transparent">
-                            Sign Up</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4"></div>
 
-            </div>
-        </div>
+</div>
+
+    @if(session.get("userId") == null) {
+        @*<div class="bg-info paging-top-lg paging-bottom-lg text-center">*@
+            @*<div class="row">*@
+                @*<div class="col-md-4 col-lg-4"></div>*@
+                @*<div class="col-xs-12 col-md-4 col-lg-4">*@
+                    @*<p>We are waiting for you.</p>*@
+                    @*<div class="container">*@
+                        @*<a class="btn btn-secondary btn-block btn-lg" href="@routes.Register.register()" style="border-color: white ; color: white ; background: transparent">*@
+                            @*Sign Up</a>*@
+                    @*</div>*@
+                @*</div>*@
+                @*<div class="col-md-4 col-lg-4"></div>*@
+
+            @*</div>*@
+        @*</div>*@
     } else {
     }
 
