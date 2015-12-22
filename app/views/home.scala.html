@@ -1,8 +1,29 @@
 @base_with_nav("Trainer+")(content)
-
 @content = {
     @*<img data-src="holder.js/100px250?fg=ffffff&bg=39DBAC&text=Trainer +" >*@
     @if(session.get("userId") != null) {
+        <div class="container margin-top">
+            <div class="row">
+                <div class="col-md-2 col-lg-3">
+                </div>
+                <div class="col-xs-12 col-md-8 col-lg-6">
+                    <div class="card card-block card-info">
+                        <div class="card-block text-center" style="color: white">
+                        <h4>Height @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getHeight() cm.</h4>
+                        </div>
+                        <div class="card-block text-center" style="color: white">
+                        <h4>Weight @Authentication.getCurrentUser(Long.parseLong(session.get("userId"))).getWeight() kg.</h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-lg-3">
+        </div>
+
+
         <div class="container margin-top">
             <div class="row">
                 <div class="col-md-1 col-lg-1">
