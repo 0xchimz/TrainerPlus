@@ -12,7 +12,7 @@
 <div class="text-center">
     <div class="center-block" style="background: #c0392b; color: white;; padding: 100px;">
         <h1>WORKOUT PROGRAMS</h1>
-        <button id="i_want" type="button" class="btn btn-warning-outline pull-right" data-toggle="button" aria-pressed="false" autocomplete="off">
+        <button id="i_want" type="button" class="btn btn-warning btn-warning-outline pull-right" data-toggle="button" aria-pressed="false" autocomplete="off">
             I want cardio
         </button>
         </div>
@@ -28,7 +28,7 @@
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="container margin-top tab-pane active" id="workout_table">
-                <button id="workout_intense" type="button" class="btn btn-primary-outline pull-left" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-bottom: 20px;">
+                    <button id="workout_intense" type="button" class="btn btn-primary btn-primary-outline pull-left" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-bottom: 20px;">
                     Intense
                 </button>
             <table class="table table-striped">
@@ -113,19 +113,19 @@
                           <td>@cardioList.get(0).getAverage()</td>
                           <td>@cardioList.get(0).getDescription()</td>
                           </tr>
-                          @if(cardioIsIntense == true){
+
                             <tr id="table_intense_cardio" style="display: none;">
-                                <td>@cardioList.get(1).getName()</td>
-                            <td>@cardioList.get(1).getFullName()</td>
-                            <td>@cardioList.get(1).getType()</td>
-                            <td>@cardioList.get(1).getHR()</td>
-                            <td>@cardioList.get(1).getDuration()</td>
-                            <td>@cardioList.get(1).getBenefit()</td>
-                            <td>@cardioList.get(1).getFrequency()</td>
-                            <td>@cardioList.get(1).getAverage()</td>
-                            <td>@cardioList.get(1).getDescription()</td>
+                                <td>@cardioList2.get(1).getName()</td>
+                            <td>@cardioList2.get(1).getFullName()</td>
+                            <td>@cardioList2.get(1).getType()</td>
+                            <td>@cardioList2.get(1).getHR()</td>
+                            <td>@cardioList2.get(1).getDuration()</td>
+                            <td>@cardioList2.get(1).getBenefit()</td>
+                            <td>@cardioList2.get(1).getFrequency()</td>
+                            <td>@cardioList2.get(1).getAverage()</td>
+                            <td>@cardioList2.get(1).getDescription()</td>
                             </tr>
-                          }
+
 
                       </tbody>
                   </table>
@@ -141,6 +141,8 @@
 </div>
 
     <script>
+//        $('#i_want').button('toggle');
+//        $('#i_want').button('toggle');
         var cardio = 1;
         $('#i_want').click(function(){
             if (cardio==0){
@@ -191,6 +193,7 @@
         } else{
             cardio = 0;
             $("#cardio_tap").hide();
+            $("#cardio_intense").attr("disabled", true);
         }
 
 

@@ -58,3 +58,15 @@
     padding-top: .425rem;
     padding-bottom: .425rem;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}

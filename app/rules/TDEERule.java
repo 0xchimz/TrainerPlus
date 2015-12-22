@@ -34,6 +34,7 @@ public class TDEERule {
         return (gender.equalsIgnoreCase("male") | gender.equalsIgnoreCase("female")) & weight > 0 & height > 0 & activity_factor > 0 & age > 0;
     }
 
+
     @Action(order = 1)
     public void checkMale() throws Exception {
         if (gender.equalsIgnoreCase("male")){

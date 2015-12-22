@@ -106,7 +106,7 @@ public class Schedule extends Controller {
 
 //        tdeeRule.
         String tdee = tdeeRule.getResult();
-//        System.out.println(tdee);
+        System.out.println(tdee);
         calEatingRule.setInput(Double.parseDouble(tdee), isGain);
 
         rulesEngine.registerRule(calEatingRule);
