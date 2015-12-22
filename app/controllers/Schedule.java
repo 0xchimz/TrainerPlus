@@ -48,8 +48,8 @@ public class Schedule extends Controller {
             flash("error", "Please setting your plan.");
             return redirect(routes.Profile.index());
         }
-        exSchRule.setInput(userWorkoutDays, workoutIsIntense, gender);
-        caRule.setInput(age, cardioIsIntense);
+        exSchRule.setInput(userWorkoutDays, false, gender);
+        caRule.setInput(age, false);
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(exSchRule);
         rulesEngine.registerRule(caRule);
@@ -57,8 +57,8 @@ public class Schedule extends Controller {
         List<Day> workoutScheduleList = exSchRule.getResult();
         List<Cardio> cardiotScheduleList = caRule.getResult();
 
-        exSchRule.setInput(userWorkoutDays, !workoutIsIntense, gender);
-        caRule.setInput(age, !cardioIsIntense);
+        exSchRule.setInput(userWorkoutDays, true, gender);
+        caRule.setInput(age, true);
         rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(exSchRule);
         rulesEngine.registerRule(caRule);

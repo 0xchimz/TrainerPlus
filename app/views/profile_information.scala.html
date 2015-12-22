@@ -8,20 +8,20 @@
           <h3 class="card-title text-center">Information</h3>
           <form class="form-row" action="@routes.Profile.editProfile()" method="POST">
             <div class="form-group">
-              <label for="input_height" class="">Height</label>
-              <input type="text" class="form-control" name="inputheight" id="input_height" placeholder="ex. 145 cm" @if(user.getHeight()!=0){ value="@user.getHeight()" } required>
+              <label for="input_height" class="">Height (Unit: cm)</label>
+              <input type="text" class="form-control" name="inputheight" id="input_height" placeholder="ex. 145" @if(user.getHeight()!=0){ value="@user.getHeight()" } required>
             </div>
             <div class="form-group">
-              <label for="input_weight">Weight</label>
-              <input type="text" class="form-control" name="inputweight" placeholder="ex. 50 kg" @if(user.getWeight()!=0){ value="@user.getWeight()" } required>
+              <label for="input_weight">Weight (Unit: kg)</label>
+              <input type="text" class="form-control" name="inputweight" placeholder="ex. 50" @if(user.getWeight()!=0){ value="@user.getWeight()" } required>
             </div>
             <div class="form-group">
-              <label for="input_waistline">Waistline</label>
-              <input type="text" class="form-control" name="inputwaistline" placeholder="ex. 30 inches" @if(user.getWaistline()!=0){ value="@user.getWaistline()" } required>
+              <label for="input_waistline">Waistline (Unit: in)</label>
+              <input type="text" class="form-control" name="inputwaistline" placeholder="ex. 30" @if(user.getWaistline()!=0){ value="@user.getWaistline()" } required>
             </div>
             <div class="form-group">
-              <label for="input_hip">Hip</label>
-              <input type="text" class="form-control" name="inputhip" placeholder="ex. 33 inches" @if(user.getHip()!=0){ value="@user.getHip()" } required>
+              <label for="input_hip">Hip (Unit: in)</label>
+              <input type="text" class="form-control" name="inputhip" placeholder="ex. 33" @if(user.getHip()!=0){ value="@user.getHip()" } required>
             </div>
               <div class="form-group">
                   <label for="input_gender">Workout Days</label>

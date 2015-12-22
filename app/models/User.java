@@ -162,7 +162,6 @@ public class User extends Model {
         DateTime now = DateTime.now();
         Period period = new Period(this.birthday, now);
         int age = period.getYears();
-        System.out.println(age + "  ----------------");
         return age;
     }
 
