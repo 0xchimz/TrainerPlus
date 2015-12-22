@@ -1,5 +1,6 @@
 package controllers;
 
+import models.WeightHistory;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.profile;
@@ -19,6 +20,9 @@ public class Profile extends Controller {
     public static Result editProfile(){
       DynamicForm dynamicForm = new DynamicForm().bindFromRequest();
       User thisUser = User.findById(Long.parseLong(session("userId")));
+      if(thisUser.getWeight() != Double.parseDouble(dynamicForm.get("inputweight"))) {
+        WeightHistory.saveByUser(thisUser);
+      }
       thisUser.setHeight(Double.parseDouble(dynamicForm.get("inputheight")));
       thisUser.setWeight(Double.parseDouble(dynamicForm.get("inputweight")));
       thisUser.setWaistline(Double.parseDouble(dynamicForm.get("inputwaistline")));
@@ -32,6 +36,7 @@ public class Profile extends Controller {
       thisUser.setIsGain(isGain);
       thisUser.setUserWorkoutDays(Integer.parseInt(dynamicForm.get("workoutDays")));
       thisUser.update();
+
       flash("success", "Your information was updated!");
       return ok(profile.render(thisUser));
 

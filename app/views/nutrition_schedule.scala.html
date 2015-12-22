@@ -1,4 +1,4 @@
-@(nulist :List[rules.nutrition.Nutrition])(rawMaterialList :List[rules.nutrition.rawmaterial.RawMaterial])(tdee : String)(eatingCal : String)
+@(nulist :List[rules.nutrition.Nutrition])(rawMaterialList :List[rules.nutrition.rawmaterial.RawMaterial])(tdees : List[String])(eatingCals : List[String])
 
 @import rules.nutrition.Nutrition;
 @import rules.nutrition.Fat;
@@ -10,28 +10,30 @@
     <div class="text-center">
         <h1 type="center-block" style="background: #9b59b6; color: white;; padding: 100px;">NUTRITION TABLE</h1>
         <div class="container margin-top">
+            @for((tdee, index) <- tdees.zipWithIndex) {
+                <div class="Energy" id="lv-cal-@index" @if(index!=1){style="display: none;"}>
+                    <p class="lead">Your TDEE is @tdee kcal, you need to eat around</p>
+                    <h1 class="display-3">@eatingCals.get(index) kcal</h1>
+                </div>
+            }
 
-            <div class="Energy">
-                <p class="lead">Your TDEE is @tdee kcal, you need to eat around</p>
-                <h1 class="display-3">@eatingCal kcal</h1>
-            </div>
 
             <div class="row container">
                 <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-info-outline">
-                        <input type="radio" name="activity_factor" id="lv1" autocomplete="off">Sedentary
+                    <label class="btn btn-info-outline" onclick="changeCal(0);">
+                        <input type="radio" name="activity_factor" id="lv0" autocomplete="off"">Sedentary
                     </label>
-                    <label class="btn btn-info-outline">
-                        <input type="radio" name="activity_factor" id="lv2" autocomplete="off">Lightly Active
+                    <label class="btn btn-info-outline active" onclick="changeCal(1);">
+                        <input type="radio" name="activity_factor" id="lv1" autocomplete="off">Lightly Active
                     </label>
-                    <label class="btn btn-info-outline">
-                        <input type="radio" name="activity_factor" id="lv3" autocomplete="off">Moderately Active
+                    <label class="btn btn-info-outline" onclick="changeCal(2);">
+                        <input type="radio" name="activity_factor" id="lv2" autocomplete="off">Moderately Active
                     </label>
-                    <label class="btn btn-info-outline">
-                        <input type="radio" name="activity_factor" id="lv4" autocomplete="off">Very Active
+                    <label class="btn btn-info-outline" onclick="changeCal(3);">
+                        <input type="radio" name="activity_factor" id="lv3" autocomplete="off">Very Active
                     </label>
-                    <label class="btn btn-info-outline">
-                        <input type="radio" name="activity_factor" id="lv5" autocomplete="off">Extremely Active
+                    <label class="btn btn-info-outline" onclick="changeCal(4);">
+                        <input type="radio" name="activity_factor" id="lv4" autocomplete="off">Extremely Active
                     </label>
                 </div>
             </div>
@@ -92,5 +94,14 @@
             $(document).ready(function(){
                 $('#raw_table').DataTable();
             });
+            old_lv = 1;
+            function changeCal(lv){
+            console.log("---" + lv);
+                $('#lv-cal-'+lv).show();
+                $('#lv-cal-'+old_lv).hide();
+                old_lv = lv;
+            }
+
+
     </script>
 }

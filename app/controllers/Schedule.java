@@ -82,9 +82,6 @@ public class Schedule extends Controller {
         RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
         rulesEngine.registerRule(nuRule);
 
-        tdeeRule.setInput(weight,height,thisUser.getGender(),thisUser.getAge(),1.2);
-        rulesEngine.registerRule(tdeeRule);
-
         meatRule.setInput(true);
         vegetableRule.setInput(true);
         drinkRule.setInput(true);
@@ -104,17 +101,19 @@ public class Schedule extends Controller {
         rawMaterialList.addAll(vetList);
         rawMaterialList.addAll(drinkList);
 
-//        tdeeRule.
-        String tdee = tdeeRule.getResult();
-        System.out.println(tdee);
-        calEatingRule.setInput(Double.parseDouble(tdee), isGain);
-
-        rulesEngine.registerRule(calEatingRule);
-        rulesEngine.fireRules();
-
-        String eatingCal = calEatingRule.getResult();
-
-        return ok(nutrition_schedule.render(nuList,rawMaterialList, tdee, eatingCal));
+        List<String> tdees = new ArrayList<String>();
+        List<String> eatingCals = new ArrayList<String>();
+        for(int i=0;i<5;i++) {
+            tdeeRule.setInput(weight, height, thisUser.getGender(), thisUser.getAge(), 1.2+(i*0.2));
+            rulesEngine.registerRule(tdeeRule);
+            rulesEngine.fireRules();
+            tdees.add(tdeeRule.getResult());
+            calEatingRule.setInput(Double.parseDouble(tdees.get(i)), isGain);
+            rulesEngine.registerRule(calEatingRule);
+            rulesEngine.fireRules();
+            eatingCals.add(calEatingRule.getResult());
+        }
+        return ok(nutrition_schedule.render(nuList,rawMaterialList, tdees, eatingCals));
     }
 
 }
