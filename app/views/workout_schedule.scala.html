@@ -1,144 +1,148 @@
-@(days: List[rules.exercise.Day])(cardioList: List[rules.cardio.Cardio])(cardioIsIntense: Boolean)(days2 :List[rules.exercise.Day])(cardioList2 : List[rules.cardio.Cardio])(isGain: Boolean)
-@import rules.exercise.Day;
-@import rules.exercise.Exercise;
-@import rules.cardio.Cardio;
-@import rules.cardio.HIIT;
-@import rules.cardio.LISS;
-@import java.util;
+@(days: List[rules.exercise.Day])(cardioList: List[rules.cardio.Cardio])(cardioIsIntense: Boolean)(days2: List[rules.exercise.Day])(cardioList2: List[rules.cardio.Cardio])(isGain: Boolean)
+    @import rules.exercise.Day;
+    @import rules.exercise.Exercise;
+    @import rules.cardio.Cardio;
+    @import rules.cardio.HIIT;
+    @import rules.cardio.LISS;
+    @import java.util;
 
-@base_with_nav("Trainer+ : Workout Schedule")(content)
+    @base_with_nav("Trainer+ : Workout Schedule")(content)
 
-@content = {
-<div class="text-center">
-    <div class="center-block" style="background: #c0392b; color: white;; padding: 100px;">
-        <h1>WORKOUT PROGRAMS</h1>
-        <button id="i_want" type="button" class="btn btn-warning btn-warning-outline pull-right" data-toggle="button" aria-pressed="false" autocomplete="off">
-            I want cardio
-        </button>
-        </div>
-    <div class="container margin-top">
-
-        <ul class="nav nav-tabs container" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" href="#workout_table" role="tab" data-toggle="tab">Workout Table</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#cardio" role="tab" data-toggle="tab" id="cardio_tap" style="display: none;">Cardio</a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div role="tabpanel" class="container margin-top tab-pane active" id="workout_table">
-                    <button id="workout_intense" type="button" class="btn btn-primary btn-primary-outline pull-left" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-bottom: 20px;">
-                    Intense
-                </button>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th >Day</th>
-                        <th class="text-center" >Workout</th>
-                        <th class="text-center" >Sets</th>
-                        <th class="text-center">Reps</th>
-
-                     </tr>
-                </thead>
-                <tbody id="table_workout">
-                    @days.zipWithIndex.map { case (day, index) =>
-                        @day.getExercises().zipWithIndex.map{ case (exercise, index2) =>
-                          <tr>
-                            @if(index2 == 0){
-                                <th scope="row" style="border-color: black;">@day.getDay()</th>
-                                <td style="border-color: black;">@exercise.getName()</td>
-                                <td style="border-color: black;">@exercise.getSets()</td>
-                                <td style="border-color: black;">@exercise.getReps()</td>
-                            } else {
-                              <th scope="row"></th>
-                                <td>@exercise.getName()</td>
-                                <td>@exercise.getSets()</td>
-                                <td>@exercise.getReps()</td>
-                            }
-
-                          </tr>
-                        }
-                    }
-                </tbody>
-
-                <tbody id="table_intense_workout" style="display: none;">
-                @days2.zipWithIndex.map { case (day, index) =>
-                    @day.getExercises().zipWithIndex.map{ case (exercise, index2) =>
-                    <tr>
-                        @if(index2 == 0){
-                            <th scope="row" style="border-color: black;">@day.getDay()</th>
-                            <td style="border-color: black;">@exercise.getName()</td>
-                            <td style="border-color: black;">@exercise.getSets()</td>
-                            <td style="border-color: black;">@exercise.getReps()</td>
-                        } else {
-                            <th scope="row"></th>
-                            <td>@exercise.getName()</td>
-                            <td>@exercise.getSets()</td>
-                            <td>@exercise.getReps()</td>
-                        }
-                    </tr>
-                    }
-                }
-                </tbody>
-            </table>
-        </div>
-            <div role="tabpanel" class="row container margin-top tab-pane" id="cardio">
-                <button id="cardio_intense" type="button" class="btn btn-primary-outline pull-left" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-bottom: 20px;">
-                    Intense
-                </button>
-                  <table class="table table-striped col-sm-12">
-                      <thead class ="verticleTable1">
-                          <tr>
-                              <th class="text-center" style="border-bottom: 0px">Name</th>
-                              <th class="text-center" style="border-bottom: 0px">Fullname</th>
-                              <th class="text-center" style="border-bottom: 0px">Type</th>
-                              <th class="text-center" style="border-bottom: 0px">Hearth rate</th>
-                              <th class="text-center" style="border-bottom: 0px">Duration</th>
-                              <th class="text-center" style="border-bottom: 0px">Benefits</th>
-                              <th class="text-center" style="border-bottom: 0px">Frequency</th>
-                              <th class="text-center" style="border-bottom: 0px">Average</th>
-                              <th class="text-center" style="border-bottom: 0px">Description</th>
-                          </tr>
-                      </thead>
-                      <tbody class ="verticleTable2">
-                          <tr id="table_cardio">
-                              <td>@cardioList.get(0).getName()</td>
-                          <td>@cardioList.get(0).getFullName()</td>
-                          <td>@cardioList.get(0).getType()</td>
-                          <td>@cardioList.get(0).getHR()</td>
-                          <td>@cardioList.get(0).getDuration()</td>
-                          <td>@cardioList.get(0).getBenefit()</td>
-                          <td>@cardioList.get(0).getFrequency()</td>
-                          <td>@cardioList.get(0).getAverage()</td>
-                          <td>@cardioList.get(0).getDescription()</td>
-                          </tr>
-
-                            <tr id="table_intense_cardio" style="display: none;">
-                                <td>@cardioList2.get(1).getName()</td>
-                            <td>@cardioList2.get(1).getFullName()</td>
-                            <td>@cardioList2.get(1).getType()</td>
-                            <td>@cardioList2.get(1).getHR()</td>
-                            <td>@cardioList2.get(1).getDuration()</td>
-                            <td>@cardioList2.get(1).getBenefit()</td>
-                            <td>@cardioList2.get(1).getFrequency()</td>
-                            <td>@cardioList2.get(1).getAverage()</td>
-                            <td>@cardioList2.get(1).getDescription()</td>
-                            </tr>
-
-
-                      </tbody>
-                  </table>
+    @content = {
+        <div class="text-center">
+            <div class="center-block" style="background : #c0392b ; color : white ;padding : 100px;">
+                <div class="container">
+                    <h1>WORKOUT PROGRAMS</h1>
+                    <button id="i_want" type="button" class="btn btn-warning btn-warning-outline pull-right" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    I want cardio
+                    </button>
                 </div>
-
-
             </div>
+            <div class="container margin-top">
+
+                <ul class="nav nav-tabs container" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#workout_table" role="tab" data-toggle="tab">Workout Table</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cardio" role="tab" data-toggle="tab" id="cardio_tap" style="display : none ;">
+                            Cardio</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="container margin-top tab-pane active" id="workout_table">
+                        <button id="workout_intense" type="button" class="btn btn-primary btn-primary-outline pull-left" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-bottom : 20px ;">
+                            Intense
+                        </button>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th >Day</th>
+                                    <th class="text-center" >Workout</th>
+                                    <th class="text-center" >Sets</th>
+                                    <th class="text-center">Reps</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="table_workout">
+                            @days.zipWithIndex.map { case (day, index) =>
+                                @day.getExercises().zipWithIndex.map { case (exercise, index2) =>
+                                <tr>
+                                    @if(index2 == 0) {
+                                        <th scope="row" style="border-color : black ;">@day.getDay()</th>
+                                        <td style="border-color : black ;">@exercise.getName()</td>
+                                        <td style="border-color : black ;">@exercise.getSets()</td>
+                                        <td style="border-color : black ;">@exercise.getReps()</td>
+                                    } else {
+                                        <th scope="row"></th>
+                                        <td>@exercise.getName()</td>
+                                        <td>@exercise.getSets()</td>
+                                        <td>@exercise.getReps()</td>
+                                    }
+
+                                </tr>
+                                }
+                            }
+                            </tbody>
+
+                            <tbody id="table_intense_workout" style="display : none ;">
+                            @days2.zipWithIndex.map { case (day, index) =>
+                                @day.getExercises().zipWithIndex.map { case (exercise, index2) =>
+                                <tr>
+                                    @if(index2 == 0) {
+                                        <th scope="row" style="border-color : black ;">@day.getDay()</th>
+                                        <td style="border-color : black ;">@exercise.getName()</td>
+                                        <td style="border-color : black ;">@exercise.getSets()</td>
+                                        <td style="border-color : black ;">@exercise.getReps()</td>
+                                    } else {
+                                        <th scope="row"></th>
+                                        <td>@exercise.getName()</td>
+                                        <td>@exercise.getSets()</td>
+                                        <td>@exercise.getReps()</td>
+                                    }
+                                </tr>
+                                }
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="row container margin-top tab-pane" id="cardio">
+                        <button id="cardio_intense" type="button" class="btn btn-primary-outline pull-left" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-bottom : 20px ;">
+                            Intense
+                        </button>
+                        <table class="table table-striped col-sm-12">
+                            <thead class ="verticleTable1">
+                                <tr>
+                                    <th class="text-center" style="border-bottom : 0px">Name</th>
+                                    <th class="text-center" style="border-bottom : 0px">Fullname</th>
+                                    <th class="text-center" style="border-bottom : 0px">Type</th>
+                                    <th class="text-center" style="border-bottom : 0px">Hearth rate</th>
+                                    <th class="text-center" style="border-bottom : 0px">Duration</th>
+                                    <th class="text-center" style="border-bottom : 0px">Benefits</th>
+                                    <th class="text-center" style="border-bottom : 0px">Frequency</th>
+                                    <th class="text-center" style="border-bottom : 0px">Average</th>
+                                    <th class="text-center" style="border-bottom : 0px">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class ="verticleTable2">
+                                <tr id="table_cardio">
+                                    <td>@cardioList.get(0).getName()</td>
+                                    <td>@cardioList.get(0).getFullName()</td>
+                                    <td>@cardioList.get(0).getType()</td>
+                                    <td>@cardioList.get(0).getHR()</td>
+                                    <td>@cardioList.get(0).getDuration()</td>
+                                    <td>@cardioList.get(0).getBenefit()</td>
+                                    <td>@cardioList.get(0).getFrequency()</td>
+                                    <td>@cardioList.get(0).getAverage()</td>
+                                    <td>@cardioList.get(0).getDescription()</td>
+                                </tr>
+
+                                <tr id="table_intense_cardio" style="display : none ;">
+                                    <td>@cardioList2.get(1).getName()</td>
+                                    <td>@cardioList2.get(1).getFullName()</td>
+                                    <td>@cardioList2.get(1).getType()</td>
+                                    <td>@cardioList2.get(1).getHR()</td>
+                                    <td>@cardioList2.get(1).getDuration()</td>
+                                    <td>@cardioList2.get(1).getBenefit()</td>
+                                    <td>@cardioList2.get(1).getFrequency()</td>
+                                    <td>@cardioList2.get(1).getAverage()</td>
+                                    <td>@cardioList2.get(1).getDescription()</td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+            <a type="link" href="@routes.Schedule.index()" class="btn btn-success-outline btn-lg" style="margin-bottom : 20px;">
+                Back</a>
         </div>
-        <a type="link" href="@routes.Schedule.index()" class="btn btn-success-outline btn-lg" style="margin-bottom: 20px;">Back</a>
-</div>
 
 
-    <script>
+        <script>
 //        $('#i_want').button('toggle');
 //        $('#i_want').button('toggle');
         var cardio = 1;
@@ -196,4 +200,4 @@
 
 
     </script>
-}
+    }
