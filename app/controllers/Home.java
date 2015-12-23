@@ -21,11 +21,19 @@ public class Home extends Controller {
     public static Result index() {
         String result = null;
         List<WeightHistory> weightHistory = null;
+//        System.out.println(User.findById(Long.parseLong(session("userId"))));
         if(session("userId") != null){
+            User thisUser = User.findById(Long.parseLong(session("userId")));
+            double weight = thisUser.getWeight();
+            boolean isGain = thisUser.isGain();
+            double height = thisUser.getHeight();
+            if(weight == 0 || height == 0) {
+                flash("error", "Please fill your information.");
+                return redirect(routes.Profile.index());
+            }
             ObesityRule obesityRule = new ObesityRule();
             RulesEngine rulesEngine = aNewRulesEngine().withSilentMode(true).build();
             rulesEngine.registerRule(obesityRule);
-            User thisUser = User.findById(Long.parseLong(session("userId")));
             obesityRule.setInput(thisUser.getGender(), thisUser.getWaistline() / thisUser.getHip());
             rulesEngine.fireRules();
             result = obesityRule.getResult();

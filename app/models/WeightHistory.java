@@ -66,6 +66,9 @@ public class WeightHistory extends Model {
             WeightHistory weightHistory = new WeightHistory(user.getWeight(), user);
             weightHistory.save();
         }
+        WeightHistory weightHistory = new WeightHistory(user.getWeight(), user);
+        weightHistory.save();
+
     }
 
     public long getId() {
