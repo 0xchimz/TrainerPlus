@@ -1,4 +1,5 @@
 # TrainerPlus
+  A simple expert-system web-application class project for `Knowledge Engineering and Management` course. It acts as a personal trainer that provides suggestions from the given conditions.
 
 ## Configuring the Database
   1.  First, you need to have MySQL installed, create the database named `trainer-plus` with an encoding set to `UTF-8`
